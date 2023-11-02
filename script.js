@@ -189,10 +189,6 @@ fetch(apiUrl1)
       console.error("Error fetching data:", error);
     });
 
-
-
-
-    
     
     
 
