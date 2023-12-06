@@ -1,376 +1,265 @@
-<html>
-  <head>
-    <title>FACT0RN: A New Challenge</title>
-    <link rel="icon" type="image/png" href="factlogo.png">
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./material.min.css">
-    <script src="./material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+        <!--========== BOX ICONS ==========-->
+        <script src="https://kit.fontawesome.com/5046334ade.js" crossorigin="anonymous"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> 
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles.css">
 
-    <script src="https://kit.fontawesome.com/5046334ade.js" crossorigin="anonymous"></script>
+        <title>FACT0RN: A New Challenge</title>
+    </head>
+    <body>
+        <!--========== HEADER ==========-->
+        <header class="header">
+            <div class="header__container">
+                <img src="assets/img/FACT_LOGO.png" alt="" class="header__img">
 
-  </head>
-  <body style="background: linear-gradient(90deg, rgba(47,42,56,1) 0%, rgba(14,34,42,1) 50%);">
-    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--transparent mdl-layout__header--scroll" style="padding: 1.75rem;">
-        <div class="mdl-layout__header-row" >
-          <!-- Title -->
-            <!-- <span class="mdl-layout-title">Title</span> -->
-          <img src="factlogo.png" alt="FACT0RN" style="width: 170px;height: 170px;">
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation -->
-          <nav class="mdl-navigation">
-            <a class="mdl-navigation__link timeline-content" href="index.html">About</a>
-            <a class="mdl-navigation__link timeline-content" href="https://explorer.fact0rn.io/">Explorer</a>
-            <a class="mdl-navigation__link timeline-content" href="https://drive.google.com/file/d/1AJ5_MTIhdI-lz8X35WGi20JNnbN_q2vn/view">Whitepaper</a>
-            <a class="mdl-navigation__link timeline-content" href="https://blaueroktober.gitbook.io/fact0rn-test-doc/overview/fact0rn-a-proof-of-work-blockchain-with-industrial-and-research-application">Knowledge base</a>
-            <a class="mdl-navigation__link timeline-content" href="resources.html">Resources</a>
-          </nav>
+                <a href="#" class="header__logo">Home</a>
+    
+                <div class="header__search">
+                    <input type="search" placeholder="Search" class="header__input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+    
+                <div class="header__toggle">
+                    <i class="fa-solid fa-bars" id="header-toggle"></i>
+                </div>
+            </div>
+        </header>
+
+        <!--========== NAV ==========-->
+        <div class="nav" id="navbar">
+            <nav class="nav__container">
+                <div>
+                    <a href="#" class="nav__link nav__logo">
+                        <i class="fa-solid fa-code"></i>
+                        <span class="nav__logo-name">FACT0RN.io</span>
+                    </a>
+    
+                    <div class="nav__list">
+                        <div class="nav__items">
+                            <h3 class="nav__subtitle">About us</h3>
+    
+                            <a href="index.html" class="nav__link active">
+                                <i class="fa-solid fa-house"></i>
+                                <span class="nav__name">Home</span>
+                            </a>
+
+                            <a href="#tokenomics" class="nav__link">
+                                <i class="fa-solid fa-chart-simple"></i>
+                                <span class="nav__name">Tokenomics</span>
+                            </a>
+
+                            <a href="#roadmap" class="nav__link">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span class="nav__name">Roadmap</span>
+                            </a>
+
+                            <a href="#contributors" class="nav__link">
+                                <i class="fa-solid fa-people-group"></i>
+                                <span class="nav__name">Contributors</span>
+                            </a>
+
+                            <a href="#crowdfund" class="nav__link">
+                                <i class="fa-solid fa-users-rays"></i>
+                                <span class="nav__name">Crowdfund</span>
+                            </a>
+
+                            <a href="#media_kit" class="nav__link">
+                                <i class="fa-solid fa-hashtag"></i>
+                                <span class="nav__name">Media Kit</span>
+                            </a>
+                            
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class="fa-solid fa-rectangle-list"></i>
+                                    <span class="nav__name">Listings</span>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="#" class="nav__dropdown-item">Exchnages</a>
+                                        <a href="#" class="nav__dropdown-item">Directories</a>
+                                        <a href="#" class="nav__dropdown-item">Accounts</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="nav__items">
+                            <h3 class="nav__subtitle">Publications</h3>
+    
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class="fa-brands fa-medium"></i>
+                                    <span class="nav__name">Medium</span>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="#" class="nav__dropdown-item">Liones Escanor</a>
+                                        <a href="#" class="nav__dropdown-item">CryptoRockin</a>
+                                        <a href="#" class="nav__dropdown-item">DrMartrysDrayke</a>
+                                        <a href="#" class="nav__dropdown-item">BlauerOktober</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class="fa-brands fa-twitter"></i>
+                                    <span class="nav__name">Twitter</span>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="#" class="nav__dropdown-item">Liones Escanor</a>
+                                        <a href="#" class="nav__dropdown-item">CryptoRockin</a>
+                                        <a href="#" class="nav__dropdown-item">DrMartrysDrayke</a>
+                                        <a href="#" class="nav__dropdown-item">BlauerOktober</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class="fa-solid fa-c"></i>
+                                    <span class="nav__name">Coinbase</span>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="#" class="nav__dropdown-item">Concept of Fact0rn</a>
+                                        <a href="#" class="nav__dropdown-item">Grant winner of the Crypto Community Fund</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="nav__items">
+                            <h3 class="nav__subtitle">Resources</h3>
+    
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class="fa-solid fa-wallet"></i>
+                                    <span class="nav__name">Wallet</span>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="#" class="nav__dropdown-item">Command Line Interface</a>
+                                        <a href="#" class="nav__dropdown-item">Graphical User Interface</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class="fa-solid fa-person-digging"></i>
+                                    <span class="nav__name">Miner</span>
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="#" class="nav__dropdown-item">Ubuntu 20.3</a>
+                                        <a href="#" class="nav__dropdown-item">Windows Subsystem for Linux</a>
+                                        <a href="#" class="nav__dropdown-item">Docker</a>
+                                        <a href="#" class="nav__dropdown-item">Source</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://blaueroktober.gitbook.io/fact0rn-test-doc/" class="nav__link nav__logout">
+                    <i class="fa-solid fa-file-code"></i>
+                    <span class="nav__name">GITBOOK Docs</span>
+                </a>
+            </nav>
         </div>
-      </header>
-        <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-          <span class="mdl-layout-title">FACT0RN</span>
-          <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="index.html">About</a>
-            <a class="mdl-navigation__link" href="https://explorer.fact0rn.io/">Explorer</a>
-            <a class="mdl-navigation__link" href="https://drive.google.com/file/d/1AJ5_MTIhdI-lz8X35WGi20JNnbN_q2vn/view">Whitepaper</a>
-            <a class="mdl-navigation__link" href="knowledgebase.html">Knowledge Base</a>
-            <a class="mdl-navigation__link" href="resources.html">Resources</a>
-          </nav>
-        </div>
-      <main class="mdl-layout__content">
-        <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col" style="display: flex; justify-content: center; color: aliceblue; padding: 100px;">
-              <div>
-                <div class=" mdl-typography--display-2">
-                  FACT0RN
+
+        <!--========== CONTENTS ==========-->
+        <main>
+            <section>
+                <div class="banner">
+                    <div class="banner-titel">
+                        FACT0RN
+                    </div>
+                    <div  class="banner-support">
+                       <a style="color: #C0B41A;">{</a> Enhance utility <br> through factoring instead <br> of hashing.<a style="color: #C0B41A;">}</a>
+                    </div>
                 </div>
-                <div class=" mdl-typography--display-4 ">
-                  Enhance utility  <br> through <h0 id="spin"></h0> instead <br> of hashing.
+            </section>
+            <section>
+                <div class="grid-container grid-container--fill">
+                    <div class="grid-element">
+                      1
+                    </div>
+                    <div class="grid-element">
+                      2
+                    </div>
+                    <div class="grid-element">
+                      3
+                    </div>
+                    <div class="grid-element">
+                      4
+                    </div>
+                    <div class="grid-element">
+                      5
+                    </div>
+                    <div class="grid-element">
+                      6
+                    </div>
+                    <div class="grid-element">
+                      7
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--12-col " style="display: flex; justify-content: center; padding: 25px;">
-              <span class="mdl-chip " style="margin-left: 5px; margin-right: 5px;">
-                <span class="mdl-chip__text">Roadmap</span>
-                <a href="#ROADMAP"><button type="button" class="mdl-chip__action"><i class="material-icons">arrow_downward</i></button></a>
-              </span>
-              <span class="mdl-chip " style="margin-left: 5px; margin-right: 5px;">
-                <span class="mdl-chip__text">Statistics</span>
-                <a href="#STATISTICS"><button type="button" class="mdl-chip__action"><i class="material-icons">arrow_downward</i></button></a>
-              </span>
-              <span class="mdl-chip " style="margin-left: 5px; margin-right: 5px;">
-                <span class="mdl-chip__text">Team</span>
-                <a href="#TEAM"><button type="button" class="mdl-chip__action"><i class="material-icons">arrow_downward</i></button></a>
-              </span>
-              <span class="mdl-chip " style="margin-left: 5px; margin-right: 5px;">
-                <span class="mdl-chip__text">Exchanges</span>
-                <a href="#EXCHANGES"><button type="button" class="mdl-chip__action"><i class="material-icons">arrow_downward</i></button></a>
-              </span>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col" style="text-align: center;">
-                <div class=" timeline-content">
-                  <h3>Difficulty</h3>
-                  <h5 id="GETDIFFICULTY"></h5>
-                </div>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col" style="text-align: center;">
-              <div class=" timeline-content">
-                <h3>Block Count</h3>
-                <h5 id="GETBLOCKCOUNT"></h5>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col" style="text-align: center;">    
-              <div class="timeline-content">
-                <h3>Connection Count</h3>
-                <h5 id="GETCONNECTIONCOUNT"></h5>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--12-col" style="padding-top: 100px;color: aliceblue;">
-              <div class="mdl-typography--display-2" id="ROADMAP">
-                || Roadmap ||
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--12-col">
-              <section class="design-section">
-                <div class="timeline">
-                  <div class="timeline-empty">
-                  </div>
-                  <div class="timeline-middle">
-                    <div class="timeline-circle"></div>
-                  </div>
-                  <div class="timeline-component timeline-content">
-                    <h3>Coinmarketcap Listing</h3>
-                    <h5>Listed <i class="material-icons" style="color: green;">done</i> <br> Tracked <i class="material-icons" style="color: green;">done</i> </h5>
-                  </div>
-                  <div class="timeline-component timeline-content">
-                    <h3>Coingecko Listing</h3>
-                    <h5>Listed <i class="material-icons" style="color: green;">done</i> <br> Tracked</h5>
-                  </div>
-                  <div class="timeline-middle">
-                    <div class="timeline-circle"></div>
-                  </div>
-                  <div class="timeline-empty">
-                  </div>
-                  <!--Well, The reason for this div is to fill space. 
-                  This space is technically used for keeping dates, 
-                  but I didn't find the need for dates. However, I'll provide 
-                  you the styling for dates, so that you can use it if you 
-                  wanted to.-->
-                  <div class="timeline-empty">
-                  </div>
-                  <!--This is the class where the timeline graphics are 
-                  housed in. Note that we have timeline-circle 
-                  here for that pointer in timeline.-->
-                  <div class="timeline-middle">
-                      <div class="timeline-circle"></div>
-                  </div>
-                  <div class="timeline-component timeline-content">
-                    <h3>BzMiner Integration</h3>
-                    <h5>Est. Q4 2023</h5>
-                  </div>
-                  <div class="timeline-component timeline-content">
-                    <h3>Develop Mining Pool</h3>
-                    <h5>Est. Q4 2023</h5>
-                  </div>
-                  <div class="timeline-middle">
-                      <div class="timeline-circle"></div>
-                  </div>
-                  <div class="timeline-empty">
-                  </div>
-                  <div class="timeline-empty">
-                  </div>
-                  <div class="timeline-middle">
-                      <div class="timeline-circle"></div>
-                  </div>
-                  <div class=" timeline-component timeline-content">
-                    <h3>Wallet Integration</h3>
-                    <h5>Est. Q4 2023 - Q1 2024</h5>
-                  </div>
-                  <div class=" timeline-component timeline-content">
-                    <h3>Deadpool</h3>
-                    <h5>Est. Q2 2024</h5>
-                  </div>
-                  <div class="timeline-middle">
-                    <div class="timeline-circle"></div>
-                  </div>
-                  <div class="timeline-empty">
-                  </div>
-                  <div class="timeline-empty">
-                  </div>
-                  <div class="timeline-middle">
-                    <div class="timeline-circle"></div>
-                  </div>
-                  <div class=" timeline-component timeline-content">
-                    <h3>Exchange Listing (Top 20)</h3>
-                    <h5>Est. Q2 2024</h5>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <div class="mdl-cell mdl-cell--12-col" style="padding-top: 100px; color: aliceblue;">
-              <div class="mdl-typography--display-2" id="STATISTICS">
-                || Statistics ||
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">    
-              <div class="timeline-content">
-                <h3>Current Supply</h3>
-                <h5 id="GETMONEYSUPPLY"></h5>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">    
-              <div class="timeline-content">
-                <h3>Total Supply</h3>
-                <h5 id="GETTOTALSUPPLY"></h5>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">    
-              <div class="timeline-content">
-                <h3>Max. Supply</h3>
-                <h5>/</h5>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">    
-              <div class="timeline-content">
-                <h3>Hashrate</h3>
-                <h5 id="HASHRATE"></h5>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">    
-              <div class="timeline-content">
-                <h3>Price</h3>
-                <h5 id="PRICE"></h5>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">    
-              <div class="timeline-content">
-                <h3>Masternode Rewards</h3>
-                <h5 id="TMR"></h5>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--12-col" style="padding-top: 100px; color: aliceblue;">
-              <div class="mdl-typography--display-2" id="TEAM">
-                || Team ||
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--12-col" style="display: flex; justify-content: center;">
-              <div class=" timeline-content">
-                <div style="width: 50%; float: left;">
-                  <img src="Profile.png" style="width: 170px;height: 170px;">
-                </div>
-                <div style="width: 50%; float: right;">
-                    <h3>Liones Escanor</h3>
-                    <h5>Core developer, founder and the <br> only legal representative of FACT0RN</h5>
-                </div>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>FranciSamuel</h4>
-                <h6>Discord Manager</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>BlauerOktober</h4>
-                <h6>Community Manager</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>DrMartrysDrayke</h4>
-                <h6>Technical Manager - Node</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>MingBip</h4>
-                <h6>Technical Manager - Wallet</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>JB</h4>
-                <h6>Community Support</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>Patrice Vibert</h4>
-                <h6>Community Support</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>Martins Bond</h4>
-                <h6>Moderator</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>Mairon of Aulë</h4>
-                <h6>Moderator</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>Bormatozavr</h4>
-                <h6>Technical Manager - Mining</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="text-align: center;">
-              <div class=" timeline-content">
-                <img src="Profile.png" style="width: 50px;height: 50px;">
-                <h4>Davhello</h4>
-                <h6>Community Developer</h6>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone mdl-cell--8-col-tablet">
-              <!-- Placeholder -->
-            </div>
-            <div class="mdl-cell mdl-cell--12-col" style="padding-top: 100px; color: aliceblue;">
-              <div class="mdl-typography--display-2" id="EXCHANGES">
-                || Exchanges & Directories ||
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="display: flex; justify-content: center;">
-              <div class=" timeline-content">
-                <a href="https://xeggex.com/market/FACT_USDT"><img src="XEGGEX.png" style="width: 100%;"></a>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="display: flex; justify-content: center;">
-              <div class=" timeline-content">
-                <a href="https://dex-trade.com/spot/trading/FACTUSDT"><img src="DEXTRADE.png" style="width: 100%;"></a>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="display: flex; justify-content: center;">
-              <div class=" timeline-content">
-                <a href="https://p2pb2b.com/trade/FACT_USDT/"><img src="P2B.png" style="width: 100%;"></a>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="display: flex; justify-content: center;">
-              <div class=" timeline-content">
-                <a href="https://coinpaprika.com/coin/fact-fact0rn/"><img src="COINPAPRIKA.png" style="width: 100%;"></a>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="display: flex; justify-content: center;">
-              <div class=" timeline-content">
-                <a href="https://www.coingecko.com/en/coins/fact0rn"><img src="COINGECKO.png" style="width: 100%;"></a>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone mdl-cell--8-col-tablet" style="display: flex; justify-content: center;">
-              <div class=" timeline-content">
-                <a href="https://coinmarketcap.com/de/currencies/fact0rn/"><img src="COINMARKETCAP.png" style="width: 100%;"></a>
-              </div>
-            </div>
-        </div>
+            </section>
+        </main>
         <footer>
-          <div class="footer">
-          <div class="row">
-          <a href="https://github.com/FACT0RN"><i class="fa-brands fa-github"></i></a>
-          <a href="https://discord.gg/UcPqtzb9"><i class="fa-brands fa-discord"></i></i></a>
-          <a href="https://www.reddit.com/r/FACT0RN/"><i class="fa-brands fa-reddit"></i></a>
-          <a href="https://x.com/FACT0RN?s=20"><i class="fa-brands fa-x-twitter"></i></a>
-          </div>
-          
-          <div class="row">
-          <ul>
-          <li><a href="index.html">About</a></li>
-          <li><a href="https://explorer.fact0rn.io/">Explorer</a></li>
-          <li><a href="https://drive.google.com/file/d/1AJ5_MTIhdI-lz8X35WGi20JNnbN_q2vn/view">Whitepaper</a></li>
-          <li><a href="https://blaueroktober.gitbook.io/fact0rn-test-doc/overview/fact0rn-a-proof-of-work-blockchain-with-industrial-and-research-application">Knowledge base</a></li>
-          <li><a href="resources.html">Resources</a></li>
-          </ul>
-          </div>
-          
-          <div class="row">
-            Copyright &copy; fact0rn.io - All rights reserved
-          </div>
-          </div>
+            <div class="footer">
+            <div class="row">
+            <a href="https://github.com/FACT0RN"><i class="fa-brands fa-github"></i></a>
+            <a href="https://discord.gg/UcPqtzb9"><i class="fa-brands fa-discord"></i></i></a>
+            <a href="https://www.reddit.com/r/FACT0RN/"><i class="fa-brands fa-reddit"></i></a>
+            <a href="https://x.com/FACT0RN?s=20"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            
+            <div class="row">
+            <ul>
+            <li><a href="index.html">About</a></li>
+            <li><a href="https://explorer.fact0rn.io/">Explorer</a></li>
+            <li><a href="https://drive.google.com/file/d/1AJ5_MTIhdI-lz8X35WGi20JNnbN_q2vn/view">Whitepaper</a></li>
+            <li><a href="https://blaueroktober.gitbook.io/fact0rn-test-doc/overview/fact0rn-a-proof-of-work-blockchain-with-industrial-and-research-application">Knowledge base</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            </ul>
+            </div>
+            
+            <div class="row">
+              Copyright &copy; fact0rn.io - All rights reserved
+            </div>
+            </div>
         </footer>
-      </main>
-    </div>
-    <script src="script.js"></script> 
-  </body>
+        
+        <!--========== MAIN JS ==========-->
+        <script src="assets/js/main.js"></script>
+        <script type="text/javascript" color="194,194,214" opacity='0.7' zIndex="-2" count="100" src="http://www.cssscript.com/demo/interactive-particle-nest-system-with-javascript-and-canvas-canvas-nest-js/canvas-nest.js"></script>
+    </body>
+    
 </html>
-
