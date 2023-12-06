@@ -364,8 +364,13 @@ img {
   width: 100%;
   padding: 1.75rem;
   border-radius: 16px;
-  background: #B16F4E;
-  color: #000;
+  background: rgb(22, 22, 31, 0.4);
+  color: #BB536A;
+  overflow: hidden;
+}
+
+.grid-element:hover {
+  background: rgb(22, 22, 31, 1);
 }
 
 .grid-container {
@@ -375,6 +380,15 @@ img {
 
 .grid-container--fill {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.grid-element-text {
+  float: left;
+}
+
+.grid-element-picture {
+  float: right;
+  opacity: 0.5;
 }
 
 .footer{
