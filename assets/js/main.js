@@ -27,7 +27,7 @@ linkColor.forEach(l => l.addEventListener('click', colorLink))
 
 
 /*==================== PARTICLE ANIMATION ====================*/
-acc_strength = 1;
+/* acc_strength = 1;
 pull_strength = 0.007;
 stick_distance = 70000;
 cursor_stick_distance = 20000;
@@ -147,4 +147,4 @@ count = 90;
   setTimeout(function() {
     draw_canvas();
   }, 100);
-}();
+}(); */

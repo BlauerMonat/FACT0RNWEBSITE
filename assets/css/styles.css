@@ -19,8 +19,8 @@
 
   /*========== Font and typography ==========*/
   --body-font: 'Poppins', sans-serif;
-  --large-font-size: 5vw;
-  --medium-large-font-size: 2.5vw;
+  --large-font-size: 3vw;
+  --medium-large-font-size: 1.5vw;
   --normal-font-size: .938rem;
   --small-font-size: .75rem;
   --smaller-font-size: .75rem;
@@ -55,20 +55,26 @@ body {
   color: var(--text-color);
 }
 
-/* .banner {
+.banner {
   display: flex;
   justify-content: center;
 }
- */
+
 .banner-titel{
   font-family: var(--body-font);
   font-size: var(--medium-large-font-size);
+  color: var(--text-color-light);
 }
 
 .banner-support {
   font-family: var(--body-font);
   font-size: var(--large-font-size);
   font-weight: var(--font-semi-bold);
+}
+
+.banner-note {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
 }
 
 h3 {
@@ -364,11 +370,11 @@ img {
 
 .grid-container {
   display: grid;
-  grid-gap: 25px;
+  grid-gap: 20px;
 }
 
 .grid-container--fill {
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .footer{
