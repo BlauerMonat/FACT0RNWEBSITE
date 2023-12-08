@@ -18,7 +18,7 @@
             <div class="header__container">
                 <img src="assets/img/FACT_LOGO.png" alt="" class="header__img">
 
-                <a href="#" class="header__logo">Home</a>
+                <a href="#" class="header__logo">Roadmap</a>
     
                 <div class="header__search">
                     <input type="search" placeholder="Search" class="header__input">
@@ -44,7 +44,7 @@
                         <div class="nav__items">
                             <h3 class="nav__subtitle">About us</h3>
     
-                            <a href="index.html" class="nav__link active">
+                            <a href="index.html" class="nav__link">
                                 <i class="fa-solid fa-house"></i>
                                 <span class="nav__name">Home</span>
                             </a>
@@ -54,7 +54,7 @@
                                 <span class="nav__name">Tokenomics</span>
                             </a>
 
-                            <a href="roadmap.html" class="nav__link">
+                            <a href="roadmap.html" class="nav__link active">
                                 <i class="fa-solid fa-chart-gantt"></i>
                                 <span class="nav__name">Roadmap</span>
                             </a>
@@ -202,63 +202,99 @@
         <!--========== CONTENTS ==========-->
         <main>
             <section>
-                <div class="banner-titel banner">
-                    Redefine. Improve. Incentive. 
-                </div>
-                <div  class="banner-support banner glow">
-                    Enhance utility through factoring.
-                </div>
-                <div  class="banner-note banner">
-                    The FACT0RN blockchain is a modern version of the RSA challenge, where anyone can participate in factoring and potentially earn coins by factoring.
-                </div>
-                <div class="banner">
-                    <img src="">
-                </div>
-            </section>
-            <section class="grid-center">
-                <div class="grid-container grid-container--fill">
-                    <div class="grid-element">
-                        <div class="grid-element-text">
-                            Layer 1 - Proof of Work
+                <div class="timeline">
+                    <div class="timeline-empty">
+                    </div>
+                    <div class="timeline-middle">
+                      <div class="timeline-circle"></div>
+                    </div>
+                    <div class="timeline-component timeline-content">
+                        <div class="timeline-text">
+                            Coinmarketcap Listing
                         </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-layer-group fa-2xl"></i>
-                        </div>
-                    </div>  
-                    <div class="grid-element">
-                        <div class="grid-element-text">
-                            Security through factoring
-                        </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-shield-halved fa-2xl"></i>
+                        <div class="timeline-note">
+                            <p>Listed <i class="fa-solid fa-check" style="color: #638d48;"></i> <br> Tracked <i class="fa-solid fa-check" style="color: #638d48;"></i> </p>
                         </div>
                     </div>
-                    <div class="grid-element">
-                        <div class="grid-element-text">
-                            Community driven
+                    <div class="timeline-component timeline-content">
+                        <div class="timeline-text">
+                            Coingecko Listing
                         </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-users-line fa-2xl"></i>
+                        <div class="timeline-note">
+                            <p>Listed <i class="fa-solid fa-check" style="color: #638d48;"></i><br> Tracked <i class="fa-solid fa-check" style="color: #638d48;"></i></p>
                         </div>
-                    </div>    
-                    <div class="grid-element">
-                        <div class="grid-element-text">
-                            Blockchain
-                        </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-cube fa-2xl"></i>
-                        </div>
-                    </div>            
-                    <div class="grid-element">
-                      Fair launch date
                     </div>
-                    <div class="grid-element">
-                      Funded by Coinbase
+                    <div class="timeline-middle">
+                      <div class="timeline-circle"></div>
                     </div>
-                    <div class="grid-element">
-                      Driven by YAFU
+                    <div class="timeline-empty">
                     </div>
-                </div>
+                    <!--Well, The reason for this div is to fill space. 
+                    This space is technically used for keeping dates, 
+                    but I didn't find the need for dates. However, I'll provide 
+                    you the styling for dates, so that you can use it if you 
+                    wanted to.-->
+                    <div class="timeline-empty">
+                    </div>
+                    <!--This is the class where the timeline graphics are 
+                    housed in. Note that we have timeline-circle 
+                    here for that pointer in timeline.-->
+                    <div class="timeline-middle">
+                        <div class="timeline-circle"></div>
+                    </div>
+                    <div class="timeline-component timeline-content">
+                        <div class="timeline-text">
+                            Wallet integration
+                        </div>
+                        <div class="timeline-note">
+                            <p>Self hosted <i class="fa-solid fa-check" style="color: #638d48;"></i> <br> 3th party wallet <i class="fa-regular fa-circle" style="color: #bb536a;"></i> </p>
+                        </div>
+                    </div>
+                    <div class="timeline-component timeline-content">
+                        <div class="timeline-text">
+                            Develop website
+                        </div>
+                        <div class="timeline-note">
+                            <p>Website V2 <i class="fa-solid fa-check" style="color: #638d48;"></i></p>
+                        </div>
+                    </div>
+                    <div class="timeline-middle">
+                        <div class="timeline-circle"></div>
+                    </div>
+                    <div class="timeline-empty">
+                    </div>
+                    <div class="timeline-empty">
+                    </div>
+                    <div class="timeline-middle">
+                        <div class="timeline-circle"></div>
+                    </div>
+                    <div class=" timeline-component timeline-content">
+                        <div class="timeline-text">
+                            Develop mining pool
+                        </div>
+                        <div class="timeline-note">
+                            <p>Fact0rn pool <i class="fa-regular fa-circle" style="color: #bb536a;"></i> <br> 3th party pool <i class="fa-regular fa-circle" style="color: #bb536a;"></i></p>
+                        </div>
+                    </div>
+                    <div class=" timeline-component timeline-content">
+                      <h3>Deadpool</h3>
+                      <h5>in progress...</h5>
+                    </div>
+                    <div class="timeline-middle">
+                      <div class="timeline-circle"></div>
+                    </div>
+                    <div class="timeline-empty">
+                    </div>
+                    <div class="timeline-empty">
+                    </div>
+                    <div class="timeline-middle">
+                      <div class="timeline-circle"></div>
+                    </div>
+                    <div class=" timeline-component timeline-content">
+                      <h3>Exchange Listing (Top 20)</h3>
+                      <h5>In progress...</h5>
+                    </div>
+                  </div>
             </section>
         </main>
         <footer>
