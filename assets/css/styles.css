@@ -65,8 +65,6 @@ body {
   font-family: var(--body-font);
   font-size: var(--medium-large-font-size);
   color: var(--text-color-light);
-  margin-top: 100px;
-
 }
 
 .banner-support {
@@ -78,7 +76,11 @@ body {
 .banner-note {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  margin-bottom: 100px;
+}
+
+.title {
+  margin-bottom: 75px;
+  margin-top: 75px;
 }
 
 h3 {
@@ -443,15 +445,15 @@ img {
 }
 
 .grid-container--fill {
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .grid-element-text {
-  float: left;
+  text-align: center;
 }
 
 .grid-element-picture {
-  float: right;
+  text-align: center;
   opacity: 0.5;
 }
 
@@ -549,4 +551,24 @@ img {
   padding: 1.75rem;
   border-radius: 16px;
   font-family: var(--body-font);
+}
+
+.progress-container {
+  margin: 20px auto;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #eee;
+  border-radius: 16px;
+  overflow: hidden;
+  border-color: #000;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background-color: #638D48;
+  text-align: center;
+  line-height: 20px;
+  color: white;
 }

@@ -4,6 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
         <!--========== BOX ICONS ==========-->
         <script src="https://kit.fontawesome.com/5046334ade.js" crossorigin="anonymous"></script>
 
@@ -18,7 +21,7 @@
             <div class="header__container">
                 <img src="assets/img/FACT_LOGO.png" alt="" class="header__img">
 
-                <a href="#" class="header__logo">Home</a>
+                <a href="#" class="header__logo">Crowdfund</a>
     
                 <div class="header__search">
                     <input type="search" placeholder="Search" class="header__input">
@@ -201,51 +204,55 @@
 
         <!--========== CONTENTS ==========-->
         <main>
-            <section>
-                
+            <section class="title">
+                <div  class="banner-support banner">
+                    Crowdfunding
+                </div>
+                <div  class="banner-note banner">
+                    Community fund raise to get listed on Mexc! 
+                </div>
             </section>
-            <section>
+            <section class="grid-center">
                 <div class="grid-container grid-container--fill">
                     <div class="grid-element">
-                        <div class="grid-element-text">
-                            Layer 1 - Proof of Work
-                        </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-layer-group fa-2xl"></i>
-                        </div>
-                    </div>  
+                            <p><b>Fundamentals:</b></p>
+                            <p><b>CEX:</b> MEXC</p>
+                            <p><b>FACT Objective:</b> 6,000 in $Fact</p>
+                            <p><b>USDT (TRC20) Objective:</b> $45,000k worth in $USDT</p>
+                    </div>
                     <div class="grid-element">
-                        <div class="grid-element-text">
-                            Security through factoring
+                        <div class="progress-container">
+                            <h2>Wallet - $FACT</h2>
+                            <div class="progress-bar" id="progress-bar">
+                              <div class="progress-bar-inner" id="progress-bar-inner"></div>
+                            </div>
+                            <p id="percentage"></p>
+                            <p id="donatedAmount"></p>
                         </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-shield-halved fa-2xl"></i>
+                        <div class="grid-element-text">
+                            <a href="https://explorer.fact0rn.io/address/fact1qm3nvrxdj0v8v0ecchjprvkt72tja3fvj6vu2hm">Open</a>
+                        </div>
+                    </div>
+                    <div class="grid-element">
+                        <div class="progress-container">
+                            <h2>Wallet - $USDT</h2>
+                            <div class="progress-bar" id="progress-bar-balance3">
+                              <div class="progress-bar-inner" id="progress-bar-inner-balance3"></div>
+                            </div>
+                            <p id="percentage-balance3"></p>
+                            <p id="donatedAmount-balance3"></p>
+                        </div>
+                        <div class="grid-element-text">
+                            <a href="https://tronscan.org/#/address/TSeMpubcvgaQtxZJyaUjKVjEVRK9CqxwJW">Open</a>
                         </div>
                     </div>
                     <div class="grid-element">
                         <div class="grid-element-text">
-                            Community driven
+                            <img src="assets/img/FACT_WALLET_MEXC.png" style="width: 100%;">
                         </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-users-line fa-2xl"></i>
-                        </div>
-                    </div>    
-                    <div class="grid-element">
                         <div class="grid-element-text">
-                            Blockchain
+                            <img src="assets/img/USDT_WALLET_MEXC.png" style="width: 100%;">
                         </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-cube fa-2xl"></i>
-                        </div>
-                    </div>            
-                    <div class="grid-element">
-                      5
-                    </div>
-                    <div class="grid-element">
-                      6
-                    </div>
-                    <div class="grid-element">
-                      7
                     </div>
                 </div>
             </section>
@@ -277,6 +284,7 @@
         
         <!--========== MAIN JS ==========-->
         <script src="assets/js/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         
     </body>
     
