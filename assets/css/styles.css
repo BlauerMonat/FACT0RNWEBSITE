@@ -111,22 +111,27 @@ body {
   font-family: var(--body-font);
   font-size: var(--medium-large-font-size);
   color: var(--text-color-light);
+  text-align: center;
 }
 
 .banner-support {
   font-family: var(--body-font);
   font-size: var(--large-font-size);
   font-weight: var(--font-semi-bold);
+  text-align: center;
 }
 
 .banner-note {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
+  text-align: center;
 }
 
 .title {
-  margin-bottom: 75px;
-  margin-top: 75px;
+  padding: 20px;
+  margin-bottom: 5rem;
+  background-color: var(--contrast);
+  border-radius: 16px;
 }
 
 h3 {
@@ -493,6 +498,13 @@ img {
   .right-div {
     order: 2; /* Change the order to control the position */
   }
+  .title {
+    padding: 20px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    background-color: var(--body-color) !important;
+    border-radius: 16px;
+  }
 }
 
 .grid-element {
@@ -640,9 +652,13 @@ img {
 }
 
 .rahmen {
+  padding: 20px;
   margin-top: 5rem;
   margin-bottom: 5rem;
+  background-color: var(--contrast);
+  border-radius: 16px;
 }
+
 
 .contrast {
   background-color: var(--contrast);
