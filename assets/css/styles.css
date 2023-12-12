@@ -441,6 +441,9 @@ img {
     background-color: var(--body-color) !important;
     border-radius: 16px;
   }
+  .rahmen {
+    margin-bottom: 5rem !important;
+  }
 }
 
 /*=============== Body content parts ===============*/
@@ -472,7 +475,7 @@ img {
 .title {
   padding: 20px;
   margin-top: 3rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   background-color: var(--contrast);
   border-radius: 16px;
 }
@@ -493,7 +496,7 @@ img {
 }
 
 .grid-container--fill {
-  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .grid-element-text {
@@ -561,7 +564,7 @@ img {
 
 .rahmen {
   padding: 20px;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   background-color: var(--contrast);
   border-radius: 16px;
 }
