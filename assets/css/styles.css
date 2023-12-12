@@ -448,6 +448,9 @@ img {
     margin-bottom: 5rem !important;
     padding: 20px !important;
   }
+  .grid-container {
+    grid-gap: 20px !important;
+  }
 }
 
 /*=============== Body content parts ===============*/
@@ -496,7 +499,7 @@ img {
 
 .grid-container {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 10px;
 }
 
 .grid-container--fill {
