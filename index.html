@@ -5,191 +5,251 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="assets/img/FACT_LOGO.png">
 
-        <!--========== BOX ICONS ==========-->
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/5046334ade.js" crossorigin="anonymous"></script>
 
-        <!--========== CSS ==========-->
+        <!--=============== CSS ===============-->
         <link rel="stylesheet" href="assets/css/styles.css">
 
         <title>FACT0RN: A New Challenge</title>
     </head>
     <body>
-        <!--========== HEADER ==========-->
+        <!--=============== HEADER ===============-->
         <header class="header">
-            <div class="header__container">
-                <img src="assets/img/FACT_LOGO.png" alt="" class="header__img">
-
-                <a href="#" class="header__logo">Home</a>
-    
-                <div class="header__search">
-                    <input type="search" placeholder="Search" class="header__input">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-    
-                <div class="header__toggle">
-                    <i class="fa-solid fa-bars" id="header-toggle"></i>
-                </div>
-            </div>
-        </header>
-
-        <!--========== NAV ==========-->
-        <div class="nav" id="navbar">
-            <nav class="nav__container">
-                <div>
-                    <a href="#" class="nav__link nav__logo">
-                        <i class="fa-solid fa-code"></i>
-                        <span class="nav__logo-name">&nbsp;&nbsp;&nbsp;&nbsp;FACT0RN.io</span>
+            <nav class="nav container">
+                <div class="nav__data">
+                    <a href="#" class="nav__logo">
+                        <i class="ri-code-s-slash-line"></i> FACT0RN
                     </a>
     
-                    <div class="nav__list">
-                        <div class="nav__items">
-                            <h3 class="nav__subtitle">About us</h3>
-    
-                            <a href="index.html" class="nav__link active">
-                                <i class="fa-solid fa-house"></i>
-                                <span class="nav__name">Home</span>
-                            </a>
-
-                            <a href="tokenomics.html" class="nav__link">
-                                <i class="fa-solid fa-chart-simple"></i>
-                                <span class="nav__name">Tokenomics</span>
-                            </a>
-
-                            <a href="roadmap.html" class="nav__link">
-                                <i class="fa-solid fa-chart-gantt"></i>
-                                <span class="nav__name">Roadmap</span>
-                            </a>
-
-                            <a href="statistics.html" class="nav__link">
-                                <i class="fa-solid fa-layer-group"></i>
-                                <span class="nav__name">Statistics</span>
-                            </a>
-
-                            <a href="contributors.html" class="nav__link">
-                                <i class="fa-solid fa-people-group"></i>
-                                <span class="nav__name">Contributors</span>
-                            </a>
-
-                            <a href="crowdfund.html" class="nav__link">
-                                <i class="fa-solid fa-users-rays"></i>
-                                <span class="nav__name">Crowdfund</span>
-                            </a>
-
-                            <a href="media_kit.html" class="nav__link">
-                                <i class="fa-solid fa-hashtag"></i>
-                                <span class="nav__name">Media Kit</span>
-                            </a>
-                            
-                            <a href="exchnages.html" class="nav__link">
-                                <i class="fa-solid fa-rectangle-list"></i>
-                                <span class="nav__name">Exchnages & Directories</span>
-                            </a>
-                        </div>
-    
-                        <div class="nav__items">
-                            <h3 class="nav__subtitle">Publications</h3>
-    
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-brands fa-medium"></i>
-                                    <span class="nav__name">Medium</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Liones Escanor</a>
-                                        <a href="#" class="nav__dropdown-item">CryptoRockin</a>
-                                        <a href="#" class="nav__dropdown-item">DrMartrysDrayke</a>
-                                        <a href="#" class="nav__dropdown-item">BlauerOktober</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-brands fa-twitter"></i>
-                                    <span class="nav__name">Twitter</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Liones Escanor</a>
-                                        <a href="#" class="nav__dropdown-item">CryptoRockin</a>
-                                        <a href="#" class="nav__dropdown-item">DrMartrysDrayke</a>
-                                        <a href="#" class="nav__dropdown-item">BlauerOktober</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-solid fa-c"></i>
-                                    <span class="nav__name">Coinbase</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Concept of Fact0rn</a>
-                                        <a href="#" class="nav__dropdown-item">Grant winner of the Crypto Community Fund</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="nav__items">
-                            <h3 class="nav__subtitle">Resources</h3>
-    
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-solid fa-wallet"></i>
-                                    <span class="nav__name">Wallet</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Command Line Interface</a>
-                                        <a href="#" class="nav__dropdown-item">Graphical User Interface</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-solid fa-person-digging"></i>
-                                    <span class="nav__name">Miner</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Ubuntu 20.3</a>
-                                        <a href="#" class="nav__dropdown-item">Windows Subsystem for Linux</a>
-                                        <a href="#" class="nav__dropdown-item">Docker</a>
-                                        <a href="#" class="nav__dropdown-item">Source</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line nav__toggle-menu"></i>
+                        <i class="ri-close-line nav__toggle-close"></i>
                     </div>
                 </div>
 
-                <a href="https://blaueroktober.gitbook.io/fact0rn-test-doc/" class="nav__link nav__logout">
-                    <i class="fa-solid fa-file-code"></i>
-                    <span class="nav__name">Knowledge base</span>
-                </a>
-            </nav>
-        </div>
+                <!--=============== NAV MENU ===============-->
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li>
+                            <a href="#" class="nav__link">Home</a>
+                        </li>
 
-        <!--========== CONTENTS ==========-->
+                        <li>
+                            <a href="#" class="nav__link">Roadmap</a>
+                        </li>
+
+                        <!--=============== DROPDOWN 1 ===============-->
+                        <li class="dropdown__item">                      
+                            <div class="nav__link dropdown__button">
+                                Discover <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-brands fa-wpexplorer fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Explorer</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Block explorer</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Wallet explorer</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">APIs</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-solid fa-people-group fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Crowdfund</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Active campaign</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Old campaign</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-regular fa-rectangle-list fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Listings</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Exchanges</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Directories</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-solid fa-hashtag fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Media kit</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Logo's</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Color palette</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!--=============== DROPDOWN 2 ===============-->
+                        <li class="dropdown__item">
+                            <div class="nav__link dropdown__button">
+                                Resources <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-solid fa-wallet fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Wallet</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Windows</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Linux/Unix</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-regular fa-square fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Miner</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Ubuntu 20.4</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Windows Subsystem for Linux</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Docker</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Source</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </li>
+
+                        <!--=============== DROPDOWN 3 ===============-->
+                        <li class="dropdown__item">                        
+                            <div class="nav__link dropdown__button">
+                                Publications <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-brands fa-medium fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Medium</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Liones Escanor</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">BlauerOktober</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">CryptoRockin</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">DrMartrysDrayke</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-brands fa-x-twitter fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Twitter</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Fact0rn</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Liones Escanor</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">BlauerOktober</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="fa-solid fa-c fa-2xl"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Coinbase</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Concept of Fact0rn</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Grant winner of the Crypto Cummunity Fund</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <main>
             <section class="title">
                 <div class="banner-titel banner">
@@ -203,13 +263,13 @@
                 </div>
             </section>
             <section class="grid-center rahmen">
-                <div class="category">
+<!--                 <div class="category">
                     Key features
-                </div>
+                </div> -->
                 <div class="grid-container grid-container--fill">
                     <div class="grid-element">
                         <div class="grid-element-text">
-                            Layer 1 - Proof of Work
+                            Proof of work
                         </div>
                         <div class="grid-element-picture">
                             <i class="fa-solid fa-layer-group fa-2xl"></i>
@@ -217,7 +277,7 @@
                     </div>  
                     <div class="grid-element">
                         <div class="grid-element-text">
-                            Security through factoring
+                            factoring based transaction (UTXO)
                         </div>
                         <div class="grid-element-picture">
                             <i class="fa-solid fa-shield-halved fa-2xl"></i>
@@ -225,7 +285,7 @@
                     </div>
                     <div class="grid-element">
                         <div class="grid-element-text">
-                            Community driven
+                            Game theory
                         </div>
                         <div class="grid-element-picture">
                             <i class="fa-solid fa-users-line fa-2xl"></i>
@@ -266,14 +326,6 @@
                     <div class="grid-element">
                         <div class="grid-element-text">
                             R & D funded by Coinbase
-                        </div>
-                        <div class="grid-element-picture">
-                            <i class="fa-solid fa-cube fa-2xl"></i>
-                        </div>
-                    </div>
-                    <div class="grid-element">
-                        <div class="grid-element-text">
-                            Driven by YAFU
                         </div>
                         <div class="grid-element-picture">
                             <i class="fa-solid fa-cube fa-2xl"></i>
@@ -382,7 +434,103 @@
                             Telegram
                         </div>
                     </div>
+                    <div class="grid-element" style="background-color: #434549;" onclick="window.location.href='https://blaueroktober.gitbook.io/fact0rn-test-doc/';">
+                        <div class="grid-element-text">
+                            <i class="fa-solid fa-book fa-2xl"></i>
+                        </div>
+                        <div class="grid-element-picture">
+                            Gitbook
+                        </div>
+                    </div>
                 </div>
+            </section>
+            <section>
+                <div class="article">
+                    <div class=" rahmen">
+                        <div class="category">
+                            Tokenomics 
+                        </div>
+                        <div class="article-inner">
+                            A Balancing Act of Reward and Difficulty<br><br>
+                            The Fact0rn tokenomics model is built around a unique difficulty adjustment mechanism based on prime
+                            factorization. The key takeaway is that the difficulty of mining roughly increases 6-9 times for every
+                            doubling of the block reward. This intricate design aims to balance inflation and scarcity, ensuring long-term network sustainability.<br>
+                            Here's a breakdown of the key elements:<br><br>
+                            1. Factorization Difficulty:<br>
+                            • Prime factorization time doubles roughly every 16 bits (5 decimal digits).<br>
+                            • This means mining becomes progressively harder as larger prime numbers need to be factored.<br><br>
+                            2. Block Reward:<br>
+                            • Doubles every 64 bits of difficulty increase.<br>
+                            • Incentivizes miners to contribute computational power to the network.<br><br>
+                            3. Sieving Difficulty:<br>
+                            • Increases alongside the prime number size, doubling every several bits.<br>
+                            • Adds another layer of complexity to the mining process.<br><br>
+                            4. Difficulty Adjustment:<br>
+                            • The combined effect of these factors leads to a 6-9 fold increase in mining difficulty for every reward doubling.<br>
+                            • This helps to control inflation and maintain a steady supply of FACT tokens over time.<br><br>
+                            5. Fact0rn Explorer:<br>
+                            • Provides real-time insights into the network's health, including block difficulty, reward, and network hash rate.<br>
+                            • Allows users to track their mining activity and monitor the overall token distribution.<br><br>
+                            6. Whitepaper:<br>
+                            • Offers a comprehensive explanation of the Fact0rn protocol and its economic model.<br>
+                            • Provides technical details on the factorization algorithm and sieving process.<br><br>
+                            By carefully balancing reward and difficulty, the Fact0rn tokenomics model aims to create a sustainable and secure platform for decentralized 
+                            applications and financial services. The combination of a unique consensus mechanism and a transparent information system allows users to 
+                            participate in the network and understand the economic forces at play.
+                        </div>
+                        <div class="grid-container grid-container--fill">
+                            <div class="grid-element">
+                                <div class="grid-element-text">
+                                    1.
+                                </div>
+                                <div class="grid-element-picture">
+                                    Time doubles every 16 bits.
+                                </div>
+                            </div>  
+                            <div class="grid-element">
+                                <div class="grid-element-text">
+                                    2.
+                                </div>
+                                <div class="grid-element-picture">
+                                    Rewards doubles every 64 bits.
+                                </div>
+                            </div>
+                            <div class="grid-element">
+                                <div class="grid-element-text">
+                                    3.
+                                </div>
+                                <div class="grid-element-picture">
+                                    Work doubles every 16 bits.
+                                </div>
+                            </div>  
+                            <div class="grid-element">
+                                <div class="grid-element-text">
+                                    4.
+                                </div>
+                                <div class="grid-element-picture">
+                                    Sieving doubles every ~ 8 bits.
+                                </div>
+                            </div>
+                            <div class="grid-element">
+                                <div class="grid-element-text">
+                                    5.
+                                </div>
+                                <div class="grid-element-picture">
+                                    3-5 times of sieving for doubling in rewards.
+                                </div>
+                            </div>
+                            <div class="grid-element">
+                                <div class="grid-element-text">
+                                    6.
+                                </div>
+                                <div class="grid-element-picture">
+                                    6-9 times of work for doubling in rewards.
+                                </div>
+                            </div>   
+                        </div>
+                    </div>  
+                </div>
+                
             </section>
         </main>
         <footer>
@@ -400,9 +548,7 @@
             </div>
         </footer>
         
-        <!--========== MAIN JS ==========-->
+        <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script>
-        
     </body>
-    
 </html>
