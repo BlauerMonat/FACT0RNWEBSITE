@@ -4,288 +4,252 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-        <!--========== BOX ICONS ==========-->
-        <script src="https://kit.fontawesome.com/5046334ade.js" crossorigin="anonymous"></script>
-
-        <!--========== CSS ==========-->
+        <!--=============== CSS ===============-->
         <link rel="stylesheet" href="assets/css/styles.css">
 
-        <title>FACT0RN: A New Challenge</title>
+        <title>Responsive navigation bar - Bedimcode</title>
     </head>
     <body>
-        <!--========== HEADER ==========-->
+        <!--=============== HEADER ===============-->
         <header class="header">
-            <div class="header__container">
-                <img src="assets/img/FACT_LOGO.png" alt="" class="header__img">
-
-                <a href="#" class="header__logo">Crowdfund</a>
-    
-                <div class="header__search">
-                    <input type="search" placeholder="Search" class="header__input">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-    
-                <div class="header__toggle">
-                    <i class="fa-solid fa-bars" id="header-toggle"></i>
-                </div>
-            </div>
-        </header>
-
-        <!--========== NAV ==========-->
-        <div class="nav" id="navbar">
-            <nav class="nav__container">
-                <div>
-                    <a href="#" class="nav__link nav__logo">
-                        <i class="fa-solid fa-code"></i>
-                        <span class="nav__logo-name">&nbsp;&nbsp;&nbsp;&nbsp;FACT0RN.io</span>
+            <nav class="nav container">
+                <div class="nav__data">
+                    <a href="#" class="nav__logo">
+                        <i class="ri-code-s-slash-line"></i> CodeBox
                     </a>
     
-                    <div class="nav__list">
-                        <div class="nav__items">
-                            <h3 class="nav__subtitle">About us</h3>
-    
-                            <a href="index.html" class="nav__link active">
-                                <i class="fa-solid fa-house"></i>
-                                <span class="nav__name">Home</span>
-                            </a>
-
-                            <a href="tokenomics.html" class="nav__link">
-                                <i class="fa-solid fa-chart-simple"></i>
-                                <span class="nav__name">Tokenomics</span>
-                            </a>
-
-                            <a href="roadmap.html" class="nav__link">
-                                <i class="fa-solid fa-chart-gantt"></i>
-                                <span class="nav__name">Roadmap</span>
-                            </a>
-
-                            <a href="statistics.html" class="nav__link">
-                                <i class="fa-solid fa-layer-group"></i>
-                                <span class="nav__name">Statistics</span>
-                            </a>
-
-                            <a href="contributors.html" class="nav__link">
-                                <i class="fa-solid fa-people-group"></i>
-                                <span class="nav__name">Contributors</span>
-                            </a>
-
-                            <a href="crowdfund.html" class="nav__link">
-                                <i class="fa-solid fa-users-rays"></i>
-                                <span class="nav__name">Crowdfund</span>
-                            </a>
-
-                            <a href="media_kit.html" class="nav__link">
-                                <i class="fa-solid fa-hashtag"></i>
-                                <span class="nav__name">Media Kit</span>
-                            </a>
-                            
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-solid fa-rectangle-list"></i>
-                                    <span class="nav__name">Listings</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Exchnages</a>
-                                        <a href="#" class="nav__dropdown-item">Directories</a>
-                                        <a href="#" class="nav__dropdown-item">Accounts</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="nav__items">
-                            <h3 class="nav__subtitle">Publications</h3>
-    
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-brands fa-medium"></i>
-                                    <span class="nav__name">Medium</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Liones Escanor</a>
-                                        <a href="#" class="nav__dropdown-item">CryptoRockin</a>
-                                        <a href="#" class="nav__dropdown-item">DrMartrysDrayke</a>
-                                        <a href="#" class="nav__dropdown-item">BlauerOktober</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-brands fa-twitter"></i>
-                                    <span class="nav__name">Twitter</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Liones Escanor</a>
-                                        <a href="#" class="nav__dropdown-item">CryptoRockin</a>
-                                        <a href="#" class="nav__dropdown-item">DrMartrysDrayke</a>
-                                        <a href="#" class="nav__dropdown-item">BlauerOktober</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-solid fa-c"></i>
-                                    <span class="nav__name">Coinbase</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Concept of Fact0rn</a>
-                                        <a href="#" class="nav__dropdown-item">Grant winner of the Crypto Community Fund</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="nav__items">
-                            <h3 class="nav__subtitle">Resources</h3>
-    
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-solid fa-wallet"></i>
-                                    <span class="nav__name">Wallet</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Command Line Interface</a>
-                                        <a href="#" class="nav__dropdown-item">Graphical User Interface</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="nav__dropdown">
-                                <a href="#" class="nav__link">
-                                    <i class="fa-solid fa-person-digging"></i>
-                                    <span class="nav__name">Miner</span>
-                                    <i class="fa-solid fa-caret-down"></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a href="#" class="nav__dropdown-item">Ubuntu 20.3</a>
-                                        <a href="#" class="nav__dropdown-item">Windows Subsystem for Linux</a>
-                                        <a href="#" class="nav__dropdown-item">Docker</a>
-                                        <a href="#" class="nav__dropdown-item">Source</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line nav__toggle-menu"></i>
+                        <i class="ri-close-line nav__toggle-close"></i>
                     </div>
                 </div>
 
-                <a href="https://blaueroktober.gitbook.io/fact0rn-test-doc/" class="nav__link nav__logout">
-                    <i class="fa-solid fa-file-code"></i>
-                    <span class="nav__name">GITBOOK Docs</span>
-                </a>
+                <!--=============== NAV MENU ===============-->
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li>
+                            <a href="#" class="nav__link">Home</a>
+                        </li>
+
+                        <!--=============== DROPDOWN 1 ===============-->
+                        <li class="dropdown__item">                      
+                            <div class="nav__link dropdown__button">
+                                Discover <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-flashlight-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Most viewed courses</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">HTML for beginners</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Advanced CSS</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">JavaScript OOP</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-heart-3-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Popular courses</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Development with Flutter</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Web development with React</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Backend development expert</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-book-mark-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Careers</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Web development</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Applications development</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">UI/UX design</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Informatic security</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-file-paper-2-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Certifications</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Course certificates</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Free certifications</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!--=============== DROPDOWN 2 ===============-->
+                        <li class="dropdown__item">
+                            <div class="nav__link dropdown__button">
+                                Resources <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-code-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Web templates</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Free templates</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Premium templates</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-pen-nib-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Designs</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Web designs</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">App designs</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Component design</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-apps-2-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Others</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Recent blogs</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Tutorial videos</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Webinar</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav__link">Pricing</a>
+                        </li>
+
+                        <!--=============== DROPDOWN 3 ===============-->
+                        <li class="dropdown__item">                        
+                            <div class="nav__link dropdown__button">
+                                Company <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-community-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">About us</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">About us</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Support</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Contact us</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-shield-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Safety and quality</span>
+    
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Cookie settings</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Privacy Policy</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </nav>
-        </div>
-
-        <!--========== CONTENTS ==========-->
-        <main>
-            <section class="title">
-                <div  class="banner-support banner">
-                    Crowdfunding
-                </div>
-                <div  class="banner-note banner">
-                    Community fund raise to get listed on Mexc! 
-                </div>
-            </section>
-            <section class="grid-center rahmen">
-                <div class="grid-container grid-container--fill">
-                    <div class="grid-element">
-                            <p><b>Fundamentals:</b></p>
-                            <p><b>CEX:</b> MEXC</p>
-                            <p><b>FACT Objective:</b> 6,000 in $Fact</p>
-                            <p><b>USDT (TRC20) Objective:</b> $45,000k worth in $USDT</p>
-                    </div>
-                    <div class="grid-element">
-                        <div class="progress-container">
-                            <h2>Wallet - $FACT</h2>
-                            <div class="progress-bar" id="progress-bar">
-                              <div class="progress-bar-inner" id="progress-bar-inner"></div>
-                            </div>
-                            <p id="percentage"></p>
-                            <p id="donatedAmount"></p>
-                        </div>
-                        <div class="grid-element-text">
-                            <a href="https://explorer.fact0rn.io/address/fact1qm3nvrxdj0v8v0ecchjprvkt72tja3fvj6vu2hm">Open</a>
-                        </div>
-                    </div>
-                    <div class="grid-element">
-                        <div class="progress-container">
-                            <h2>Wallet - $USDT</h2>
-                            <div class="progress-bar" id="progress-bar-balance3">
-                              <div class="progress-bar-inner" id="progress-bar-inner-balance3"></div>
-                            </div>
-                            <p id="percentage-balance3"></p>
-                            <p id="donatedAmount-balance3"></p>
-                        </div>
-                        <div class="grid-element-text">
-                            <a href="https://tronscan.org/#/address/TSeMpubcvgaQtxZJyaUjKVjEVRK9CqxwJW">Open</a>
-                        </div>
-                    </div>
-                    <div class="grid-element">
-                        <div class="grid-element-text">
-                            <img src="assets/img/FACT_WALLET_MEXC.png" style="width: 100%;">
-                        </div>
-                        <div class="grid-element-text">
-                            <img src="assets/img/USDT_WALLET_MEXC.png" style="width: 100%;">
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <div class="footer">
-            <div class="row">
-            <a href="https://github.com/FACT0RN"><i class="fa-brands fa-github"></i></a>
-            <a href="https://discord.gg/UcPqtzb9"><i class="fa-brands fa-discord"></i></i></a>
-            <a href="https://www.reddit.com/r/FACT0RN/"><i class="fa-brands fa-reddit"></i></a>
-            <a href="https://x.com/FACT0RN?s=20"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-            
-            <div class="row">
-            <ul>
-            <li><a href="index.html">About</a></li>
-            <li><a href="https://explorer.fact0rn.io/">Explorer</a></li>
-            <li><a href="https://drive.google.com/file/d/1AJ5_MTIhdI-lz8X35WGi20JNnbN_q2vn/view">Whitepaper</a></li>
-            <li><a href="https://blaueroktober.gitbook.io/fact0rn-test-doc/overview/fact0rn-a-proof-of-work-blockchain-with-industrial-and-research-application">Knowledge base</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            </ul>
-            </div>
-            
-            <div class="row">
-              Copyright &copy; fact0rn.io - All rights reserved
-            </div>
-            </div>
-        </footer>
+        </header>
         
-        <!--========== MAIN JS ==========-->
+        <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        
     </body>
-    
 </html>
