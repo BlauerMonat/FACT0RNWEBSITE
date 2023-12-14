@@ -9,7 +9,7 @@
   --first-color: hsl(220, 68%, 54%);
   /* --first-color-lighten: hsl(220, 68%, 97%); */
   --first-color-lighten: #eaefff;
-  --first-color-darken: #242E42;
+  --first-color-darken: #142d3e;
   --title-color: #fff;
   --text-color: #E5E4E2;
   --body-color: #1A1B27;
@@ -451,6 +451,9 @@ img {
   .grid-container {
     grid-gap: 20px !important;
   }
+  .category {
+    padding-bottom: 20px !important;
+  }
 }
 
 /*=============== Body content parts ===============*/
@@ -480,7 +483,7 @@ img {
 }
 
 .title {
-  padding: 20px;
+  padding: 10px;
   margin-top: 6rem;
   margin-bottom: 3rem;
   background-color: var(--contrast);
@@ -524,7 +527,7 @@ img {
   padding: 1.75rem;
   transition: 0.4s ease;
   overflow-wrap: break-word !important;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: var(--body-font);
 }
 .timeline-text {
@@ -597,7 +600,7 @@ img {
 
 .category {
   text-align: center;
-  padding-bottom: 20px;
+  padding: 10px;
   font-size: var(--medium-font-size);
   font-family: var(--body-font);
 }

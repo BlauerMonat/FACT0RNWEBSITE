@@ -72,3 +72,76 @@ const removeStyle = () =>{
 }
 
 addEventListener('resize', removeStyle)
+
+/*=============== API ACCESS ===============*/
+function fetchData(url, elementId, transformFunction, suffix) {
+    fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            const divElement = document.getElementById(elementId);
+            const value = transformFunction(json);
+            divElement.textContent = `${value} ${suffix}`;
+        })
+        .catch(error => console.error(`Error fetching data for ${elementId}:`, error));
+}
+
+// Ensure that updateHashrate and updatePrice functions are correctly defined
+function updateHashrate(hashrate) {
+    const hashrateDiv = document.getElementById("HASHRATE");
+    hashrateDiv.textContent = `${hashrate} GH/s`;
+}
+
+function updatePrice(price) {
+    const priceDiv = document.getElementById("PRICE");
+    priceDiv.textContent = `${price}$`;
+}
+
+fetchData("https://explorer.fact0rn.io/api/getdifficulty", "GETDIFFICULTY", json => json, "bit");
+fetchData("https://explorer.fact0rn.io/api/getconnectioncount", "GETCONNECTIONCOUNT", json => json, "nodes");
+fetchData("https://explorer.fact0rn.io/api/getblockcount", "GETBLOCKCOUNT", json => json, "blocks");
+
+fetch("https://explorer.fact0rn.io/ext/getmoneysupply")
+    .then(response => response.json())
+    .then(json => {
+        const divElement = document.getElementById("GETMONEYSUPPLY");
+        divElement.textContent = JSON.stringify(json, null, 2);
+    })
+    .catch(error => console.error("Error fetching data for GETMONEYSUPPLY:", error));
+
+fetch("https://explorer.fact0rn.io/ext/getmoneysupply")
+    .then(response => response.json())
+    .then(json => {
+        const divElement = document.getElementById("GETTOTALSUPPLY");
+        divElement.textContent = JSON.stringify(json, null, 2);
+    })
+    .catch(error => console.error("Error fetching data for GETTOTALSUPPLY:", error));
+
+const apiUrl = "https://explorer.fact0rn.io/ext/getsummary";
+
+function fetchDataAndUpdate(elementId, updateFunction, property) {
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const value = data[property];
+            updateFunction(value);
+        })
+        .catch(error => console.error(`Error fetching data for ${elementId}: ${error.message}`));
+}
+
+fetchDataAndUpdate("HASHRATE", updateHashrate, "hashrate");
+fetchDataAndUpdate("PRICE", updatePrice, "lastPrice");
+
+fetch("https://explorer.fact0rn.io/ext/getmasternoderewardstotal/ELvb8AZRgHmdsDnD1HYFwbSY4UkPhoECCW/64152")
+    .then(response => response.json())
+    .then(json => {
+        const divElement = document.getElementById("TMR");
+        divElement.textContent = JSON.stringify(json, null, 2);
+    })
+    .catch(error => console.error("Error fetching data for TMR:", error));
+
+
