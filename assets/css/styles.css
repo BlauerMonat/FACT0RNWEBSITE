@@ -19,8 +19,8 @@
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
-  --large-font-size: 5vw;
-  --medium-large-font-size: 2.5vw;
+  --large-font-size: 7vw;
+  --medium-large-font-size: 1.5rem;
   --medium-font-size: 1.5rem;
   --normal-font-size: .938rem;
   --small-font-size: .813rem;
@@ -439,9 +439,8 @@ img {
   }
   .title {
     padding: 20px;
-    margin-top: 10rem !important;
+    margin-top: 6.5rem !important;
     margin-bottom: 5rem;
-    background-color: var(--body-color) !important;
     border-radius: 16px;
   }
   .rahmen {
@@ -459,35 +458,34 @@ img {
 /*=============== Body content parts ===============*/
 .banner {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 .banner-titel{
   font-family: var(--body-font);
   font-size: var(--medium-large-font-size);
   color: var(--text-color-light);
-  text-align: center;
+  text-align: left;
 }
 
 .banner-support {
   font-family: var(--body-font);
   font-size: var(--large-font-size);
   font-weight: var(--font-semi-bold);
-  text-align: center;
+  text-align: left;
 }
 
 .banner-note {
   font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  text-align: center;
+  text-align: left;
 }
 
 .title {
   padding: 10px;
   margin-top: 6rem;
   margin-bottom: 3rem;
-  background-color: var(--contrast);
   border-radius: 16px;
+  background-color: var(--contrast);
 }
 
 .grid-element {
