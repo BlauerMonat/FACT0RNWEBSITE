@@ -73,164 +73,122 @@ const removeStyle = () =>{
 
 addEventListener('resize', removeStyle)
 
-/*=============== API ACCESS ===============*/
+/*=============== API ACCESS STATISTICS ===============*/
 $(document).ready(function() {
-    $.ajax({
-      url: "https://explorer.fact0rn.io/api/getdifficulty",
-      method: "GET",
-      dataType: "json",
-      success: function(data) {
-        // Process the fetched data and display it
-        console.log(data); // For debugging and inspection
+    // Combined AJAX requests
+    const endpoints = [
+      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_DIFFICULTY", property: "difficulty" },
+      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_BLOCKCOUNT", property: "blockcount" },
+      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_CONNECTIONCOUNT", property: "connections" },
+      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_MONEYSUPPLY_CIRC", property: "supply" },
+      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_MONEYSUPPLY_TOTAL", property: "supply" },
+      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "HASHRATE", property: "hashrate" },
+      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "PRICE", property: "lastPrice" }
+    ];
   
-        // Example: Display the difficulty value in the element with ID "GET_DIFFICULTY"
-        $("#GET_DIFFICULTY").text(data.difficulty);
+    // Create a single error handler to avoid redundancy and improve maintainability
+    const handleError = (endpoint, jqXHR, textStatus, errorThrown) => {
+      console.error(`Error fetching data from ${endpoint.url}:`, textStatus, errorThrown);
+      $(`#${endpoint.id}`).text("Error: Could not fetch data.");
+    };
   
-        // You can customize how to display the data based on your needs
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        // Handle errors if the request fails
-        console.error("Error fetching data:", textStatus, errorThrown);
-        $("#GET_DIFFICULTY").text("Error: Could not fetch data.");
-      }
-    });
+    // Use Promise.all to handle multiple AJAX requests concurrently and improve performance
+    Promise.all(endpoints.map(endpoint =>
+      $.ajax({
+        url: endpoint.url,
+        method: "GET",
+        dataType: "json"
+      })
+      .then(data => {
+        const value = data[endpoint.property];
+        if (value) {
+          $(`#${endpoint.id}`).text(value);
+        } else {
+          console.warn(`Warning: Property "${endpoint.property}" not found in response for ${endpoint.url}`);
+        }
+      })
+      .catch(error => handleError(endpoint, error.jqXHR, error.textStatus, error.errorThrown))
+    ))
+    .catch(error => console.error("Error handling AJAX requests:", error));
   });
-
-
-
-/* function fetchData(url, elementId, transformFunction, suffix) {
-    fetch(url)
-        .then(response => response.json())
-        .then(json => {
-            const divElement = document.getElementById(elementId);
-            const value = transformFunction(json);
-            divElement.textContent = `${value} ${suffix}`;
-        })
-        .catch(error => console.error(`Error fetching data for ${elementId}:`, error));
-}
-
-// Ensure that updateHashrate and updatePrice functions are correctly defined
-function updateHashrate(hashrate) {
-    const hashrateDiv = document.getElementById("HASHRATE");
-    hashrateDiv.textContent = `${hashrate} GH/s`;
-}
-
-function updatePrice(price) {
-    const priceDiv = document.getElementById("PRICE");
-    priceDiv.textContent = `${price}$`;
-}
-
-fetchData("https://explorer.fact0rn.io/api/getdifficulty", "GETDIFFICULTY", json => json, "bit");
-fetchData("https://explorer.fact0rn.io/api/getconnectioncount", "GETCONNECTIONCOUNT", json => json, "nodes");
-fetchData("https://explorer.fact0rn.io/api/getblockcount", "GETBLOCKCOUNT", json => json, "blocks");
-
-fetch("https://explorer.fact0rn.io/ext/getmoneysupply")
-    .then(response => response.json())
-    .then(json => {
-        const divElement = document.getElementById("GETMONEYSUPPLY");
-        divElement.textContent = JSON.stringify(json, null, 2);
-    })
-    .catch(error => console.error("Error fetching data for GETMONEYSUPPLY:", error));
-
-fetch("https://explorer.fact0rn.io/ext/getmoneysupply")
-    .then(response => response.json())
-    .then(json => {
-        const divElement = document.getElementById("GETTOTALSUPPLY");
-        divElement.textContent = JSON.stringify(json, null, 2);
-    })
-    .catch(error => console.error("Error fetching data for GETTOTALSUPPLY:", error));
-
-const apiUrl = "https://explorer.fact0rn.io/ext/getsummary";
-
-function fetchDataAndUpdate(elementId, updateFunction, property) {
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const value = data[property];
-            updateFunction(value);
-        })
-        .catch(error => console.error(`Error fetching data for ${elementId}: ${error.message}`));
-}
-
-fetchDataAndUpdate("HASHRATE", updateHashrate, "hashrate");
-fetchDataAndUpdate("PRICE", updatePrice, "lastPrice");
-
-fetch("https://explorer.fact0rn.io/ext/getmasternoderewardstotal/ELvb8AZRgHmdsDnD1HYFwbSY4UkPhoECCW/64152")
-    .then(response => response.json())
-    .then(json => {
-        const divElement = document.getElementById("TMR");
-        divElement.textContent = JSON.stringify(json, null, 2);
-    })
-    .catch(error => console.error("Error fetching data for TMR:", error)); */
-
-/*=============== API AJAX ACCESS ===============*/
+  
+/*=============== API AJAX ACCESS WALLET BALANCE ===============*/
 $(document).ready(function () {
     // Function to perform the calculation
     function calculateDonatedAmount(balance, marketLastPrice) {
-        return (balance * marketLastPrice).toFixed(2);
+      return (balance * marketLastPrice).toFixed(2);
     }
-
+  
     // Function to update the progress bar
     function updateProgressBar(progressBarId, percentageElemId, donatedAmountElemId, valueInDollars, goal) {
-        const donatedPercentage = (valueInDollars / goal) * 100;
-
-        const progressBar = $(`#${progressBarId}`);
-        progressBar.find('.progress-bar-inner').css('width', `${donatedPercentage > 100 ? 100 : donatedPercentage}%`);
-
-        $(`#${percentageElemId}`).text(`${Math.floor(donatedPercentage)}% - `);
-        $(`#${donatedAmountElemId}`).text(`${valueInDollars} $ / ${goal} $`);
+      const donatedPercentage = (valueInDollars / goal) * 100;
+  
+      const progressBar = $(`#${progressBarId}`);
+      progressBar.find('.progress-bar-inner').css('width', `${donatedPercentage > 100 ? 100 : donatedPercentage}%`);
+  
+      $(`#${percentageElemId}`).text(`${Math.floor(donatedPercentage)}% - `);
+      $(`#${donatedAmountElemId}`).text(`${valueInDollars} $ / ${goal} $`);
     }
-
-    // Fetch initial wallet balance from Wallet-Balance2
+  
+    // Fetch initial wallet balance from Wallet1
     $.ajax({
-        url: 'https://explorer.fact0rn.io/ext/getbalance/fact1qm3nvrxdj0v8v0ecchjprvkt72tja3fvj6vu2hm',
-        cache: false,
-        success: function (balanceHtml) {
-            const initialWalletBalance = parseFloat(balanceHtml);
-
-            // Fetch market last price
+      url: 'https://explorer.fact0rn.io/ext/getbalance/fact1qm3nvrxdj0v8v0ecchjprvkt72tja3fvj6vu2hm',
+      cache: false,
+      success: function (balanceHtml) {
+        const initialWalletBalance = parseFloat(balanceHtml);
+  
+        // Fetch market last price
+        $.ajax({
+          url: 'https://xeggex.com/market/FACT_USDT',
+          method: 'GET',
+          success: function (data) {
+            // Extract the market last price using jQuery
+            const marketLastPriceText = $(data).find('span.marketlastprice').text();
+            const marketLastPrice = parseFloat(marketLastPriceText).toFixed(2);
+  
+            // Update progress bar for Wallet1
+            updateProgressBar('PROGRESSBAR_WALLET1', 'PERCENTAGE_WALLET1', 'DONATED_AMOUNT_WALLET1', calculateDonatedAmount(initialWalletBalance, marketLastPrice), 20000);
+  
+            // Make the third AJAX request to get the wallet balance for Wallet2
             $.ajax({
-                url: 'https://xeggex.com/market/FACT_USDT',
+              url: 'https://apilist.tronscanapi.com/api/account/wallet?address=TSeMpubcvgaQtxZJyaUjKVjEVRK9CqxwJW&asset_type=1',
+              method: 'GET',
+              success: function (data) {
+                const balance = parseFloat(data.data[1].balance);
+                const goalBalance3 = 20000;
+                $('#Wallet-Balance3').text(balance.toFixed(2));
+  
+                // Update progress bar for Wallet2
+                updateProgressBar('PROGRESSBAR_WALLET2', 'PERCENTAGE_WALLET2', 'DONATED_AMOUNT_WALLET2', calculateDonatedAmount(balance, 1), goalBalance3, 'USDT');
+              },
+              error: function (xhr, status, error) {
+                console.error('AJAX request for WALLET2 failed:', status, error);
+              }
+            });
+
+            $.ajax({
+                url: 'https://api.etherscan.io/api?module=account&action=balance&address=0x58f30F0CD525D5C50b70cF84AE8a000C6c6c9cf2&tag=latest',
                 method: 'GET',
                 success: function (data) {
-                    // Extract the market last price using jQuery
-                    const marketLastPriceText = $(data).find('span.marketlastprice').text();
-                    const marketLastPrice = parseFloat(marketLastPriceText).toFixed(2);
-
-                    // Update progress bar for Wallet-Balance2
-                    updateProgressBar('progress-bar', 'percentage', 'donatedAmount', calculateDonatedAmount(initialWalletBalance, marketLastPrice), 20000);
-
-                    // Make the third AJAX request to get the wallet balance for Wallet-Balance3
-                    $.ajax({
-                        url: 'https://apilist.tronscanapi.com/api/account/wallet?address=TSeMpubcvgaQtxZJyaUjKVjEVRK9CqxwJW&asset_type=1',
-                        method: 'GET',
-                        success: function (data) {
-                            const balance = parseFloat(data.data[1].balance);
-                            const goalBalance3 = 20000;
-                            $('#Wallet-Balance3').text(balance.toFixed(2));
-
-                            // Update progress bar for Wallet-Balance3
-                            updateProgressBar('progress-bar-balance3', 'percentage-balance3', 'donatedAmount-balance3', calculateDonatedAmount(balance, 1), goalBalance3, 'USDT');
-                        },
-                        error: function (xhr, status, error) {
-                            console.error('AJAX request for Wallet-Balance3 failed:', status, error);
-                        }
-                    });
+                  const balance = parseFloat(data.result);
+                  const goalBalance3 = 20000;
+                  $('#Wallet-Balance3').text(balance.toFixed(2));
+              
+                  // Update progress bar for WALLET3
+                  updateProgressBar('PROGRESSBAR_WALLET3', 'PERCENTAGE_WALLET3', 'DONATED_AMOUNT_WALLET3', calculateDonatedAmount(balance, 1), goalBalance3, 'USDT');
                 },
                 error: function (xhr, status, error) {
-                    console.error('AJAX request for market last price failed:', status, error);
+                  console.error('AJAX request for WALLET3 failed:', status, error);
                 }
-            });
-        },
-        error: function (xhr, status, error) {
-            console.error('AJAX request for Wallet-Balance2 failed:', status, error);
-        }
+              });
+          },
+          error: function (xhr, status, error) {
+            console.error('AJAX request for market last price failed:', status, error);
+          }
+        });
+      },
+      error: function (xhr, status, error) {
+        console.error('AJAX request for WALLET2 failed:', status, error);
+      }
     });
-});
-
-
+  });
