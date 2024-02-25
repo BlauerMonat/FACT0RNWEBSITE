@@ -147,7 +147,7 @@ $(document).ready(function () {
             const marketLastPrice = parseFloat(marketLastPriceText).toFixed(2);
   
             // Update progress bar for Wallet1
-            updateProgressBar('PROGRESSBAR_WALLET1', 'PERCENTAGE_WALLET1', 'DONATED_AMOUNT_WALLET1', calculateDonatedAmount(initialWalletBalance, marketLastPrice), 20000);
+            updateProgressBar('PROGRESSBAR_WALLET1', 'PERCENTAGE_WALLET1', 'DONATED_AMOUNT_WALLET1', calculateDonatedAmount(initialWalletBalance, marketLastPrice), 50000);
   
             // Make the third AJAX request to get the wallet balance for Wallet2
             $.ajax({
@@ -155,7 +155,7 @@ $(document).ready(function () {
               method: 'GET',
               success: function (data) {
                 const balance = parseFloat(data.data[1].balance);
-                const goalBalance3 = 20000;
+                const goalBalance3 = 50000;
                 $('#Wallet-Balance3').text(balance.toFixed(2));
   
                 // Update progress bar for Wallet2
@@ -171,7 +171,7 @@ $(document).ready(function () {
                 method: 'GET',
                 success: function (data) {
                   const balance = parseFloat(data.result);
-                  const goalBalance3 = 20000;
+                  const goalBalance3 = 50000;
                   $('#Wallet-Balance3').text(balance.toFixed(2));
               
                   // Update progress bar for WALLET3
