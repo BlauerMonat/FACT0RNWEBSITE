@@ -74,7 +74,31 @@ const removeStyle = () =>{
 addEventListener('resize', removeStyle)
 
 /*=============== API ACCESS ===============*/
-function fetchData(url, elementId, transformFunction, suffix) {
+$(document).ready(function() {
+    $.ajax({
+      url: "https://explorer.fact0rn.io/api/getdifficulty",
+      method: "GET",
+      dataType: "json",
+      success: function(data) {
+        // Process the fetched data and display it
+        console.log(data); // For debugging and inspection
+  
+        // Example: Display the difficulty value in the element with ID "GET_DIFFICULTY"
+        $("#GET_DIFFICULTY").text(data.difficulty);
+  
+        // You can customize how to display the data based on your needs
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        // Handle errors if the request fails
+        console.error("Error fetching data:", textStatus, errorThrown);
+        $("#GET_DIFFICULTY").text("Error: Could not fetch data.");
+      }
+    });
+  });
+
+
+
+/* function fetchData(url, elementId, transformFunction, suffix) {
     fetch(url)
         .then(response => response.json())
         .then(json => {
@@ -142,7 +166,7 @@ fetch("https://explorer.fact0rn.io/ext/getmasternoderewardstotal/ELvb8AZRgHmdsDn
         const divElement = document.getElementById("TMR");
         divElement.textContent = JSON.stringify(json, null, 2);
     })
-    .catch(error => console.error("Error fetching data for TMR:", error));
+    .catch(error => console.error("Error fetching data for TMR:", error)); */
 
 /*=============== API AJAX ACCESS ===============*/
 $(document).ready(function () {
@@ -179,7 +203,7 @@ $(document).ready(function () {
                     const marketLastPrice = parseFloat(marketLastPriceText).toFixed(2);
 
                     // Update progress bar for Wallet-Balance2
-                    updateProgressBar('progress-bar', 'percentage', 'donatedAmount', calculateDonatedAmount(initialWalletBalance, marketLastPrice), 60000);
+                    updateProgressBar('progress-bar', 'percentage', 'donatedAmount', calculateDonatedAmount(initialWalletBalance, marketLastPrice), 20000);
 
                     // Make the third AJAX request to get the wallet balance for Wallet-Balance3
                     $.ajax({
@@ -187,7 +211,7 @@ $(document).ready(function () {
                         method: 'GET',
                         success: function (data) {
                             const balance = parseFloat(data.data[1].balance);
-                            const goalBalance3 = 45000;
+                            const goalBalance3 = 20000;
                             $('#Wallet-Balance3').text(balance.toFixed(2));
 
                             // Update progress bar for Wallet-Balance3
