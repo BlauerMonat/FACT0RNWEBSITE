@@ -249,49 +249,117 @@ $(document).ready(function() {
   $('.slick-vertical').on('beforeChange', function(event, slick, currentSlide, nextSlide){
     $('.linked-slick').slick('slickGoTo', nextSlide);
   });
+});
 
+const endpoints = [
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_DIFFICULTY", property: "difficulty" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_BLOCKCOUNT", property: "blockcount" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_CONNECTIONCOUNT", property: "connections" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_MONEYSUPPLY_CIRC", property: "supply" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_MONEYSUPPLY_TOTAL", property: "supply" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "HASHRATE", property: "hashrate" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "PRICE", property: "lastPrice" }
+];
 
+// Function to round up a value to 2 decimal places
+const roundUpToTwoDecimals = (value) => {
+  return Math.ceil(value * 100) / 100;
+};
 
+// Improved error handler with more context
+const handleError = (endpoint, error) => {
+  console.error(`Error fetching data from ${endpoint.url}:`, error.statusText || error);
+  $(`#${endpoint.id}`).text("Error: Could not fetch data.");
+};
 
+// Function to update an individual DOM element
+const updateElementText = (id, value) => {
+  $(`#${id}`).text(value);
+};
 
-    // Combined AJAX requests
-    const endpoints = [
-      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_DIFFICULTY", property: "difficulty" },
-      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_BLOCKCOUNT", property: "blockcount" },
-      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_CONNECTIONCOUNT", property: "connections" },
-      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_MONEYSUPPLY_CIRC", property: "supply" },
-      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_MONEYSUPPLY_TOTAL", property: "supply" },
-      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "HASHRATE", property: "hashrate" },
-      { url: "https://explorer.fact0rn.io/ext/getsummary", id: "PRICE", property: "lastPrice" }
-    ];
-
-    // Create a single error handler to avoid redundancy and improve maintainability
-    const handleError = (endpoint, jqXHR, textStatus, errorThrown) => {
-      console.error(`Error fetching data from ${endpoint.url}:`, textStatus, errorThrown);
-      $(`#${endpoint.id}`).text("Error: Could not fetch data.");
-    };
-
-    // Use Promise.all to handle multiple AJAX requests concurrently and improve performance
-
-    Promise.all(endpoints.map(endpoint =>
-      $.ajax({
-        url: endpoint.url,
-        method: "GET",
-        dataType: "json"
-      })
-      .then(data => {
-        const value = data[endpoint.property];
-        if (value) {
-          $(`#${endpoint.id}`).text(value);
-        } else {
-          console.warn(`Warning: Property "${endpoint.property}" not found in response for ${endpoint.url}`);
-        }
-      })
-      .catch(error => handleError(endpoint, error.jqXHR, error.textStatus, error.errorThrown))
-    ))
-    .catch(error => console.error("Error handling AJAX requests:", error));
-
+// Function to fetch data for a specific endpoint
+const fetchData = (endpoint) => {
+  return $.ajax({
+    url: endpoint.url,
+    method: "GET",
+    dataType: "json"
+  })
+  .then(data => {
+    const value = data[endpoint.property];
+    if (value !== undefined) {
+      const roundedValue = roundUpToTwoDecimals(value);
+      updateElementText(endpoint.id, roundedValue);
+      return { id: endpoint.id, value: roundedValue };
+    } else {
+      console.warn(`Property "${endpoint.property}" not found for ${endpoint.url}`);
+      return null;
+    }
+  })
+  .catch(error => {
+    handleError(endpoint, error);
+    return null;
   });
+};
+
+// Fetch all data concurrently
+Promise.all(endpoints.map(fetchData))
+  .then(results => {
+    // Filter valid results and extract needed values
+    const values = results.filter(result => result !== null);
+    
+    const circSupply = values.find(item => item.id === "GET_MONEYSUPPLY_CIRC")?.value;
+    const price = values.find(item => item.id === "PRICE")?.value;
+
+    // Calculate and display market cap if both values are available
+    if (circSupply && price) {
+      const marketCap = roundUpToTwoDecimals(circSupply * price);
+      updateElementText("Marketcap", marketCap);
+    } else {
+      console.warn("Market cap calculation skipped due to missing data.");
+    }
+  })
+  .catch(error => {
+    console.error("Error handling AJAX requests:", error);
+  });
+
+
+
+// Combined AJAX requests
+/* const endpoints = [
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_DIFFICULTY", property: "difficulty" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_BLOCKCOUNT", property: "blockcount" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_CONNECTIONCOUNT", property: "connections" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_MONEYSUPPLY_CIRC", property: "supply" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_MONEYSUPPLY_TOTAL", property: "supply" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "HASHRATE", property: "hashrate" },
+  { url: "https://explorer.fact0rn.io/ext/getsummary", id: "PRICE", property: "lastPrice" }
+];
+
+// Create a single error handler to avoid redundancy and improve maintainability
+const handleError = (endpoint, jqXHR, textStatus, errorThrown) => {
+  console.error(`Error fetching data from ${endpoint.url}:`, textStatus, errorThrown);
+  $(`#${endpoint.id}`).text("Error: Could not fetch data.");
+};
+
+// Use Promise.all to handle multiple AJAX requests concurrently and improve performance
+
+Promise.all(endpoints.map(endpoint =>
+  $.ajax({
+    url: endpoint.url,
+    method: "GET",
+    dataType: "json"
+  })
+  .then(data => {
+    const value = data[endpoint.property];
+    if (value) {
+      $(`#${endpoint.id}`).text(value);
+    } else {
+      console.warn(`Warning: Property "${endpoint.property}" not found in response for ${endpoint.url}`);
+    }
+  })
+  .catch(error => handleError(endpoint, error.jqXHR, error.textStatus, error.errorThrown))
+))
+.catch(error => console.error("Error handling AJAX requests:", error)); */
 
 /*=============== API AJAX ACCESS WALLET BALANCE ===============*/
 $(document).ready(function () {
