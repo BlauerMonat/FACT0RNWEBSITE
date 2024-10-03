@@ -228,7 +228,7 @@ $(document).ready(function() {
     arrows:true,
     fade:true,
     autoplay:true,
-    autoplaySpeed:5000,
+    autoplaySpeed:10000,
     focusOnSelect:true,
     pauseOnHover:true,
     adaptiveHeight: true,
@@ -264,15 +264,14 @@ $(document).ready(function() {
       { url: "https://explorer.fact0rn.io/ext/getsummary", id: "HASHRATE", property: "hashrate" },
       { url: "https://explorer.fact0rn.io/ext/getsummary", id: "PRICE", property: "lastPrice" }
     ];
-
+    
     // Create a single error handler to avoid redundancy and improve maintainability
     const handleError = (endpoint, jqXHR, textStatus, errorThrown) => {
       console.error(`Error fetching data from ${endpoint.url}:`, textStatus, errorThrown);
       $(`#${endpoint.id}`).text("Error: Could not fetch data.");
     };
-
+    
     // Use Promise.all to handle multiple AJAX requests concurrently and improve performance
-
     Promise.all(endpoints.map(endpoint =>
       $.ajax({
         url: endpoint.url,
@@ -280,8 +279,12 @@ $(document).ready(function() {
         dataType: "json"
       })
       .then(data => {
-        const value = data[endpoint.property];
+        let value = data[endpoint.property];
         if (value) {
+          // Round the values for GET_MONEYSUPPLY_CIRC and GET_MONEYSUPPLY_TOTAL to 2 decimal places
+          if (endpoint.id === "GET_MONEYSUPPLY_CIRC" || endpoint.id === "GET_MONEYSUPPLY_TOTAL") {
+            value = parseFloat(value).toFixed(2); // Round to 2 decimal places
+          }
           $(`#${endpoint.id}`).text(value);
         } else {
           console.warn(`Warning: Property "${endpoint.property}" not found in response for ${endpoint.url}`);
@@ -290,8 +293,7 @@ $(document).ready(function() {
       .catch(error => handleError(endpoint, error.jqXHR, error.textStatus, error.errorThrown))
     ))
     .catch(error => console.error("Error handling AJAX requests:", error));
-
-  });
+    
 
 /*=============== API AJAX ACCESS WALLET BALANCE ===============*/
 $(document).ready(function () {
