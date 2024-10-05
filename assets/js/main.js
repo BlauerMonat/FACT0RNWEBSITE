@@ -266,7 +266,7 @@ Promise.all(endpoints.map(endpoint =>
 .catch(error => console.error("Error handling AJAX requests:", error)); */
 
 /*=============== API AJAX ACCESS WALLET BALANCE ===============*/
-$(document).ready(function () {
+/* $(document).ready(function () {
   // Function to perform the calculation
   function calculateDonatedAmount(balance, marketLastPrice) {
     return (balance * marketLastPrice).toFixed(2);
@@ -285,7 +285,7 @@ $(document).ready(function () {
 
   // Fetch initial wallet balance from Wallet1
   
-  /* $.ajax({
+  $.ajax({
     url: 'https://explorer.fact0rn.io/ext/getbalance/fact1qeg9huyfeczksxt39y9rgmls34w8y4khn289ntn',
     cache: false,
     success: function (balanceHtml) {
@@ -344,5 +344,58 @@ $(document).ready(function () {
     error: function (xhr, status, error) {
       console.error('AJAX request for WALLET2 failed:', status, error);
     }
-  }); */
+  });
 });
+ */
+
+    // Funding goal in USD
+    const fundingGoal = 50000;
+    
+    // IDs for updating the DOM
+    const donatedAmountEl = document.getElementById('DONATED_AMOUNT_WALLET1');
+    const percentageEl = document.getElementById('PERCENTAGE_WALLET1');
+    const progressBarInnerEl = document.getElementById('PROGRESSBAR_INNER_WALLET1');
+
+    // Fetch the amount of coins donated
+    async function fetchCoinAmount() {
+        const response = await fetch('https://explorer.fact0rn.io/ext/getbalance/fact1qeg9huyfeczksxt39y9rgmls34w8y4khn289ntn');
+        const coinAmount = await response.json();
+        return parseFloat(coinAmount);  // Convert to a number
+    }
+
+    // Fetch the current price of the coin
+    async function fetchCoinPrice() {
+        const response = await fetch('https://explorer.fact0rn.io/ext/getsummary');
+        const data = await response.json();
+        return parseFloat(data.lastPrice);  // Extract lastPrice and convert to a number
+    }
+
+    // Calculate the donated amount in USD and update the display
+    async function updateDonationStats() {
+          try {
+            const coinAmount = await fetchCoinAmount();
+            const coinPrice = await fetchCoinPrice();
+            
+            // Calculate donated amount in USD
+            const donatedAmountUSD = coinAmount * coinPrice;
+
+            // Update the DOM for donated amount
+            donatedAmountEl.textContent = `${donatedAmountUSD.toFixed(2)}$ of 50,000$`;
+
+            // Calculate the percentage of the funding goal
+            const percentage = (donatedAmountUSD / fundingGoal) * 100;
+            percentageEl.textContent = `${percentage.toFixed(2)}% of 100%`;  // Display as "% of 100%"
+
+            // Update the progress bar
+            progressBarInnerEl.style.width = `${Math.min(percentage, 100)}%`;  // Fill up to 100% max
+            
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    // Call the function to update donation stats
+    updateDonationStats();
+
+    // Optionally, update every minute (60000ms)
+    setInterval(updateDonationStats, 60000);
