@@ -285,7 +285,7 @@ $(document).ready(function () {
 
   // Fetch initial wallet balance from Wallet1
   
-  $.ajax({
+  /* $.ajax({
     url: 'https://explorer.fact0rn.io/ext/getbalance/fact1qeg9huyfeczksxt39y9rgmls34w8y4khn289ntn',
     cache: false,
     success: function (balanceHtml) {
@@ -344,5 +344,5 @@ $(document).ready(function () {
     error: function (xhr, status, error) {
       console.error('AJAX request for WALLET2 failed:', status, error);
     }
-  });
+  }); */
 });
