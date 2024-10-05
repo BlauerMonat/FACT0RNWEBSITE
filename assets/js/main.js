@@ -13,104 +13,6 @@ const showMenu = (toggleId, navId) =>{
 
 showMenu('nav-toggle','nav-menu')
 
-
-/*=============== FAQ ===============*/
-
-
-$(document).ready(function() {
-  filterSelection('general');
-})
-function searchFunction() {
-  
-  var input, filter, ul, li, s, p, i, txtValue;
-  input = document.getElementById('myInput');
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName('li');
-  if(filter){
-    $("#myBtnContainer").addClass("searching");
-    $("#myUL").addClass("searching");
-  } else { 
-    $("#myBtnContainer").removeClass("searching");
-    $("#myUL").removeClass("searching");
-  }
-
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    p = li[i].getElementsByTagName("p")[0];
-    s = li[i].getElementsByTagName("span")[0];
-    txtValue = (s.textContent || s.innerText) + " " + (p.textContent || p.innerText) ;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
-}
-
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
-  for (i = 0; i < x.length; i++) {
-    faqRemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) faqAddClass(x[i], "show");
-  }
-
-}
-
-// Show filtered elements
-function faqAddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {
-      element.className += " " + arr2[i];
-    }
-  }
-}
-
-// Hide elements that are not selected
-function faqRemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1); 
-    }
-  }
-  element.className = arr1.join(" ");
-}
-
-// Add active class to the current control button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
-
-
-// Accordion Function
-$(function() {
-	// (Optional) Active an item if it has the class "is-active"	
-	$("#myUL > .filterDiv.is-active").children(".accordion-panel").slideDown();
-	
-	$("#myUL > .filterDiv > span").click(function() {
-    //event.preventDefault();
-		// Cancel the siblings
-		$(this).closest('li').siblings(".filterDiv").removeClass("is-active").children(".accordion-panel").slideUp();
-		// Toggle the item
-		$(this).closest('li').toggleClass("is-active").children(".accordion-panel").slideToggle("ease-out");
-	});
-});
-
 /*=============== SHOW DROPDOWN MENU ===============*/
 const dropdownItems = document.querySelectorAll('.dropdown__item')
 
@@ -171,7 +73,7 @@ const removeStyle = () =>{
 
 addEventListener('resize', removeStyle)
 
-/*=============== API ACCESS STATISTICS ===============*/
+/*=============== Blockheader Roulette ===============*/
 
 $(document).ready(function() {
 
@@ -251,6 +153,8 @@ $(document).ready(function() {
   });
 });
 
+
+/*=============== STATS und FACTS ===============*/
 const endpoints = [
   { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_DIFFICULTY", property: "difficulty" },
   { url: "https://explorer.fact0rn.io/ext/getsummary", id: "GET_BLOCKCOUNT", property: "blockcount" },
@@ -363,84 +267,82 @@ Promise.all(endpoints.map(endpoint =>
 
 /*=============== API AJAX ACCESS WALLET BALANCE ===============*/
 $(document).ready(function () {
-    // Function to perform the calculation
-    function calculateDonatedAmount(balance, marketLastPrice) {
-      return (balance * marketLastPrice).toFixed(2);
-    }
+  // Function to perform the calculation
+  function calculateDonatedAmount(balance, marketLastPrice) {
+    return (balance * marketLastPrice).toFixed(2);
+  }
 
-    // Function to update the progress bar
-    function updateProgressBar(progressBarId, percentageElemId, donatedAmountElemId, valueInDollars, goal) {
-      const donatedPercentage = (valueInDollars / goal) * 100;
+  // Function to update the progress bar
+  function updateProgressBar(progressBarId, percentageElemId, donatedAmountElemId, valueInDollars, goal) {
+    const donatedPercentage = (valueInDollars / goal) * 100;
 
-      const progressBar = $(`#${progressBarId}`);
-      progressBar.find('.progress-bar-inner').css('width', `${donatedPercentage > 100 ? 100 : donatedPercentage}%`);
+    const progressBar = $(`#${progressBarId}`);
+    progressBar.find('.progress-bar-inner').css('width', `${donatedPercentage > 100 ? 100 : donatedPercentage}%`);
 
-      $(`#${percentageElemId}`).text(`${Math.floor(donatedPercentage)}% - `);
-      $(`#${donatedAmountElemId}`).text(`${valueInDollars} $ / ${goal} $`);
-    }
+    $(`#${percentageElemId}`).text(`${Math.floor(donatedPercentage)}% of 100% `);
+    $(`#${donatedAmountElemId}`).text(`${valueInDollars} $ / ${goal} $`);
+  }
 
-    // Fetch initial wallet balance from Wallet1
-    /*
-    $.ajax({
-      url: 'https://explorer.fact0rn.io/ext/getbalance/fact1qm3nvrxdj0v8v0ecchjprvkt72tja3fvj6vu2hm',
-      cache: false,
-      success: function (balanceHtml) {
-        const initialWalletBalance = parseFloat(balanceHtml);
+  // Fetch initial wallet balance from Wallet1
+  
+  $.ajax({
+    url: 'https://explorer.fact0rn.io/ext/getbalance/fact1qeg9huyfeczksxt39y9rgmls34w8y4khn289ntn',
+    cache: false,
+    success: function (balanceHtml) {
+      const initialWalletBalance = parseFloat(balanceHtml);
 
-        // Fetch market last price
-        $.ajax({
-          url: 'https://xeggex.com/market/FACT_USDT',
-          method: 'GET',
-          success: function (data) {
-            // Extract the market last price using jQuery
-            const marketLastPriceText = $(data).find('span.marketlastprice').text();
-            const marketLastPrice = parseFloat(marketLastPriceText).toFixed(2);
+      // Fetch market last price
+      $.ajax({
+        url: 'https://xeggex.com/market/FACT_USDT',
+        method: 'GET',
+        success: function (data) {
+          // Extract the market last price using jQuery
+          const marketLastPriceText = $(data).find('span.marketlastprice').text();
+          const marketLastPrice = parseFloat(marketLastPriceText).toFixed(2);
 
-            // Update progress bar for Wallet1
-            updateProgressBar('PROGRESSBAR_WALLET1', 'PERCENTAGE_WALLET1', 'DONATED_AMOUNT_WALLET1', calculateDonatedAmount(initialWalletBalance, marketLastPrice), 50000);
+          // Update progress bar for Wallet1
+          updateProgressBar('PROGRESSBAR_WALLET1', 'PERCENTAGE_WALLET1', 'DONATED_AMOUNT_WALLET1', calculateDonatedAmount(initialWalletBalance, marketLastPrice), 50000);
 
-            // Make the third AJAX request to get the wallet balance for Wallet2
-            $.ajax({
-              url: 'https://apilist.tronscanapi.com/api/account/wallet?address=TSeMpubcvgaQtxZJyaUjKVjEVRK9CqxwJW&asset_type=1',
+          // Make the third AJAX request to get the wallet balance for Wallet2
+          $.ajax({
+            url: 'https://apilist.tronscanapi.com/api/account/wallet?address=TSeMpubcvgaQtxZJyaUjKVjEVRK9CqxwJW&asset_type=1',
+            method: 'GET',
+            success: function (data) {
+              const balance = parseFloat(data.data[1].balance);
+              const goalBalance3 = 50000;
+              $('#Wallet-Balance3').text(balance.toFixed(2));
+
+              // Update progress bar for Wallet2
+              updateProgressBar('PROGRESSBAR_WALLET2', 'PERCENTAGE_WALLET2', 'DONATED_AMOUNT_WALLET2', calculateDonatedAmount(balance, 1), goalBalance3, 'USDT');
+            },
+            error: function (xhr, status, error) {
+              console.error('AJAX request for WALLET2 failed:', status, error);
+            }
+          });
+
+          $.ajax({
+              url: 'https://api.etherscan.io/api?module=account&action=balance&address=0x58f30F0CD525D5C50b70cF84AE8a000C6c6c9cf2&tag=latest',
               method: 'GET',
               success: function (data) {
-                const balance = parseFloat(data.data[1].balance);
+                const balance = parseFloat(data.result);
                 const goalBalance3 = 50000;
                 $('#Wallet-Balance3').text(balance.toFixed(2));
 
-                // Update progress bar for Wallet2
-                updateProgressBar('PROGRESSBAR_WALLET2', 'PERCENTAGE_WALLET2', 'DONATED_AMOUNT_WALLET2', calculateDonatedAmount(balance, 1), goalBalance3, 'USDT');
+                // Update progress bar for WALLET3
+                updateProgressBar('PROGRESSBAR_WALLET3', 'PERCENTAGE_WALLET3', 'DONATED_AMOUNT_WALLET3', calculateDonatedAmount(balance, 1), goalBalance3, 'USDT');
               },
               error: function (xhr, status, error) {
-                console.error('AJAX request for WALLET2 failed:', status, error);
+                console.error('AJAX request for WALLET3 failed:', status, error);
               }
             });
-
-            $.ajax({
-                url: 'https://api.etherscan.io/api?module=account&action=balance&address=0x58f30F0CD525D5C50b70cF84AE8a000C6c6c9cf2&tag=latest',
-                method: 'GET',
-                success: function (data) {
-                  const balance = parseFloat(data.result);
-                  const goalBalance3 = 50000;
-                  $('#Wallet-Balance3').text(balance.toFixed(2));
-
-                  // Update progress bar for WALLET3
-                  updateProgressBar('PROGRESSBAR_WALLET3', 'PERCENTAGE_WALLET3', 'DONATED_AMOUNT_WALLET3', calculateDonatedAmount(balance, 1), goalBalance3, 'USDT');
-                },
-                error: function (xhr, status, error) {
-                  console.error('AJAX request for WALLET3 failed:', status, error);
-                }
-              });
-          },
-          error: function (xhr, status, error) {
-            console.error('AJAX request for market last price failed:', status, error);
-          }
-        });
-      },
-      error: function (xhr, status, error) {
-        console.error('AJAX request for WALLET2 failed:', status, error);
-      }
-    });
-
-    */
+        },
+        error: function (xhr, status, error) {
+          console.error('AJAX request for market last price failed:', status, error);
+        }
+      });
+    },
+    error: function (xhr, status, error) {
+      console.error('AJAX request for WALLET2 failed:', status, error);
+    }
   });
+});
