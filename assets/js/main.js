@@ -347,55 +347,57 @@ Promise.all(endpoints.map(endpoint =>
   });
 });
  */
+//======================== FACT Wallet Balance===================//
+// Updated funding goal in Fact0rn coins
+const fundingGoalFACT0RN = 5000;  // The goal is now 5000 Fact0rn coins
 
-    // Funding goal in USD
-    const fundingGoal = 50000;
-    
-    // IDs for updating the DOM
-    const donatedAmountEl = document.getElementById('DONATED_AMOUNT_WALLET1');
-    const percentageEl = document.getElementById('PERCENTAGE_WALLET1');
-    const progressBarInnerEl = document.getElementById('PROGRESSBAR_INNER_WALLET1');
+// IDs for updating the DOM
+const donatedAmountEl = document.getElementById('DONATED_AMOUNT_WALLET1');
+const percentageEl = document.getElementById('PERCENTAGE_WALLET1');
+const progressBarInnerEl = document.getElementById('PROGRESSBAR_INNER_WALLET1');
 
-    // Fetch the amount of coins donated
-    async function fetchCoinAmount() {
+// Fetch the amount of coins donated
+async function fetchCoinAmount() {
+    try {
         const response = await fetch('https://explorer.fact0rn.io/ext/getbalance/fact1qeg9huyfeczksxt39y9rgmls34w8y4khn289ntn');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
         const coinAmount = await response.json();
         return parseFloat(coinAmount);  // Convert to a number
+    } catch (error) {
+        console.error('Error fetching coin amount:', error);
+        return 0;  // Return 0 in case of error
     }
+}
 
-    // Fetch the current price of the coin
-    async function fetchCoinPrice() {
-        const response = await fetch('https://explorer.fact0rn.io/ext/getsummary');
-        const data = await response.json();
-        return parseFloat(data.lastPrice);  // Extract lastPrice and convert to a number
+// Update the display with donated amount and goal
+async function updateDonationStatsFact0rn() {
+    try {
+        const coinAmount = await fetchCoinAmount();
+
+        // Update the DOM for donated amount in Fact0rn coins
+        donatedAmountEl.textContent = `${coinAmount.toFixed(2)} $FACT of ${fundingGoalFACT0RN} $FACT`;
+
+        // Calculate the percentage of the funding goal based on coins
+        const percentage = (coinAmount / fundingGoalFACT0RN) * 100;
+        percentageEl.textContent = `${percentage.toFixed(2)}% of 100%`;
+
+        // Update the progress bar (ensure it's capped at 100%)
+        progressBarInnerEl.style.width = `${Math.min(percentage, 100)}%`;
+
+        // For accessibility (if screen readers are involved)
+        progressBarInnerEl.setAttribute('aria-valuenow', percentage.toFixed(2));
+        progressBarInnerEl.setAttribute('aria-valuemin', 0);
+        progressBarInnerEl.setAttribute('aria-valuemax', 100);
+    } catch (error) {
+        console.error("Error updating donation stats:", error);
     }
+}
 
-    // Calculate the donated amount in USD and update the display
-    async function updateDonationStats() {
-          try {
-            const coinAmount = await fetchCoinAmount();
-            const coinPrice = await fetchCoinPrice();
-            
-            // Calculate donated amount in USD
-            const donatedAmountUSD = coinAmount * coinPrice;
+// Call the function to update donation stats
+updateDonationStatsFact0rn();
 
-            // Update the DOM for donated amount
-            donatedAmountEl.textContent = `${donatedAmountUSD.toFixed(2)}$ of 50,000$`;
+// Optionally, update every minute (60000ms)
+setInterval(updateDonationStatsFact0rn, 60000);
 
-            // Calculate the percentage of the funding goal
-            const percentage = (donatedAmountUSD / fundingGoal) * 100;
-            percentageEl.textContent = `${percentage.toFixed(2)}% of 100%`;  // Display as "% of 100%"
-
-            // Update the progress bar
-            progressBarInnerEl.style.width = `${Math.min(percentage, 100)}%`;  // Fill up to 100% max
-            
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    }
-
-    // Call the function to update donation stats
-    updateDonationStats();
-
-    // Optionally, update every minute (60000ms)
-    setInterval(updateDonationStats, 60000);
