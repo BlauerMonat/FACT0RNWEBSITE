@@ -349,7 +349,7 @@ Promise.all(endpoints.map(endpoint =>
  */
 //======================== FACT Wallet Balance===================//
 // Updated funding goal in Fact0rn coins
-const fundingGoalFACT0RN = 5000;  // The goal is now 5000 Fact0rn coins
+const fundingGoalFACT0RN = 18000; 
 
 // IDs for updating the DOM
 const donatedAmountEl = document.getElementById('DONATED_AMOUNT_WALLET1');
