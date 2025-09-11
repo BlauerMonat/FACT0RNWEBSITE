@@ -7,7 +7,7 @@
   --header-height: 3.5rem;
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: #1652F0;
+  --first-color: #e62e21;
   /* --first-color-lighten: hsl(220, 68%, 97%); */
   --first-color-lighten: #eaefff;
   --first-color-darken: rgba(5,5,5,.79);
@@ -890,6 +890,12 @@ z-index: 999999999;
     text-align: center;
   opacity: .7;
 }
+
+.grid-element-text_no_opacity {
+    text-align: center;
+  opacity: 1 !important;
+}
+
 .grid-element svg {
   width: 59px;
   height:59px;
@@ -919,7 +925,7 @@ z-index: 999999999;
 }
 
 .workplace {
-  background-color:#269;
+  background-color:#269 !important;
   background-image: linear-gradient(white 2px, transparent 2px),
   linear-gradient(90deg, white 2px, transparent 2px),
   linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
@@ -1051,7 +1057,7 @@ ul.circle li:last-child{
   width: 21px;
   height: 21px;
   border-radius: 18px;
-  background: var(--green);
+  background: var(--first-color);
 }
 .checked:after{
   content: "";
@@ -1079,7 +1085,7 @@ top:-4px;
 width: 31px;
 height: 31px;
 border-radius: 18px;
-background: var(--green);
+background: var(--first-color);
 transition: all 1.5s ease-in-out;
 }
 .checked-big:hover:before{
@@ -1234,8 +1240,8 @@ font-size: 15px;
 
 .button-26 {
   appearance: button;
-  background-color: #1652F0;
-  border: 1px solid #1652F0;
+  background-color: #e62e21;
+  border: 1px solid #e62e21;
   border-radius: 26px;
   box-sizing: border-box;
   color: #FFFFFF;
@@ -1283,13 +1289,13 @@ margin-left: 7px;
 }
 
 .button-26:hover {
-  background-color: #0A46E4;
-  border-color: #0A46E4;
+  background-color: #e62e21;
+  border-color: #e62e21;
 }
 
 .button-26:active {
-  background-color: #0039D7;
-  border-color: #0039D7;
+  background-color: #e62e21;
+  border-color: #e62e21;
 }
 
 
